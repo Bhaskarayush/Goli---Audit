@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///C:/Users/Ayush%20Bhaskar/Downloads/Goli_VC_Ads_Dashboard_2026_4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goli Nutrition — VC Advertising Dashboard 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #F7F8FA;
+    --surface: #FFFFFF;
+    --surface2: #F0F2F5;
+    --border: #E2E6EC;
+    --text-primary: #0F1724;
+    --text-secondary: #5A6475;
+    --text-muted: #8D97A5;
+    --accent: #1A56DB;
+    --accent-light: #EBF0FD;
+    --green: #0E9F6E;
+    --green-light: #E3F8F1;
+    --red: #E02424;
+    --red-light: #FDE8E8;
+    --amber: #D97706;
+    --amber-light: #FEF3C7;
+    --purple: #7C3AED;
+    --purple-light: #EDE9FE;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,.1);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+    section { break-inside: avoid; }
+    .tab-content { display: block !important; opacity: 1 !important; }
+    .tabs-bar { display: none; }
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0F1724 0%, #1A2C4E 60%, #1A56DB 100%);
+    color: white;
+    padding: 32px 40px 28px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .header-left { flex: 1; }
+  .header-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+  }
+  .header-subtitle { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 6px; }
+  .header-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 18px; border-radius: 8px; font-size: 13px;
+    font-weight: 600; cursor: pointer; border: none; transition: all .15s;
+    text-decoration: none; font-family: inherit;
+  }
+  .btn-primary { background: #fff; color: #1A56DB; }
+  .btn-primary:hover { background: #EBF0FD; }
+  .btn-outline { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+  .btn-outline:hover { background: rgba(255,255,255,.2); }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  .tab-btn {
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    transition: all .15s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: var(--accent); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── MAIN CONTENT ── */
+  .main { max-width: 1400px; margin: 0 auto; padding: 32px 40px; }
+  .tab-content { display: none; animation: fadeIn .2s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SECTION HEADER ── */
+  .section-header { margin-bottom: 24px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+  }
+  .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text-primary); }
+  .section-desc { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+  /* ── GRID ── */
+  .grid { display: grid; gap: 16px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-12 { grid-template-columns: 1fr 2fr; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-muted); margin-bottom: 16px;
+  }
+
+  /* ── KPI CARD ── */
+  .kpi { padding: 20px; }
+  .kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+  .kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: var(--text-primary); line-height: 1; }
+  .kpi-sub { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+  .kpi-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; font-weight: 600; padding: 2px 8px;
+    border-radius: 20px; margin-top: 6px;
+  }
+  .badge-red { background: var(--red-light); color: var(--red); }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-amber { background: var(--amber-light); color: var(--amber); }
+  .badge-blue { background: var(--accent-light); color: var(--accent); }
+  .badge-purple { background: var(--purple-light); color: var(--purple); }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    background: var(--surface2);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody td { padding: 11px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+  .campaign-name { font-weight: 500; color: var(--text-primary); max-width: 280px; }
+  .campaign-name small { display: block; font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+
+  /* ── TYPE BADGE ── */
+  .type-badge {
+    display: inline-block; padding: 2px 7px; border-radius: 4px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+  }
+  .type-sp { background: #DBEAFE; color: #1D4ED8; }
+  .type-sb { background: #EDE9FE; color: #6D28D9; }
+  .type-sd { background: #D1FAE5; color: #065F46; }
+
+  /* ── ROAS BAR ── */
+  .roas-bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .roas-bar { flex: 1; height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .roas-bar-fill { height: 100%; border-radius: 3px; }
+  .roas-num { font-weight: 700; font-size: 13px; min-width: 38px; text-align: right; }
+
+  /* ── STATUS PILL ── */
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+  }
+  .pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
+  .pill-scale { background: var(--green-light); color: var(--green); }
+  .pill-scale::before { background: var(--green); }
+  .pill-pause { background: var(--red-light); color: var(--red); }
+  .pill-pause::before { background: var(--red); }
+  .pill-watch { background: var(--amber-light); color: var(--amber); }
+  .pill-watch::before { background: var(--amber); }
+
+  /* ── MONTHLY TABLE ── */
+  .monthly-row td:first-child { font-weight: 600; }
+  .acos-cell { font-weight: 700; }
+  .acos-high { color: var(--red); }
+  .acos-mid { color: var(--amber); }
+  .acos-ok { color: var(--green); }
+
+  /* ── TREND CHART ── */
+  .chart-area { padding: 8px 0; }
+  svg.mini-chart { width: 100%; overflow: visible; }
+
+  /* ── POA CARD ── */
+  .poa-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px; border-radius: var(--radius-sm);
+    background: var(--surface2); margin-bottom: 10px;
+  }
+  .poa-item:last-child { margin-bottom: 0; }
+  .poa-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .poa-body { flex: 1; }
+  .poa-title { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .poa-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .poa-priority {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+    padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+  }
+  .priority-1 { background: var(--red-light); color: var(--red); }
+  .priority-2 { background: var(--amber-light); color: var(--amber); }
+  .priority-3 { background: var(--accent-light); color: var(--accent); }
+
+  /* ── SUGGESTIONS ── */
+  .suggestion-card {
+    border-left: 4px solid;
+    padding: 16px 20px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+  }
+  .suggestion-card.quick { border-color: var(--green); }
+  .suggestion-card.strategic { border-color: var(--accent); }
+  .suggestion-card.structural { border-color: var(--purple); }
+  .suggestion-card.bidding { border-color: var(--amber); }
+  .sug-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .sug-tag {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .8px; padding: 2px 8px; border-radius: 4px;
+  }
+  .tag-quick { background: var(--green-light); color: var(--green); }
+  .tag-strategic { background: var(--accent-light); color: var(--accent); }
+  .tag-structural { background: var(--purple-light); color: var(--purple); }
+  .tag-bidding { background: var(--amber-light); color: var(--amber); }
+  .sug-title { font-weight: 700; font-size: 14px; }
+  .sug-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .sug-impact {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; font-weight: 600; margin-top: 8px;
+    color: var(--text-secondary);
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* ── SUMMARY BANNER ── */
+  .summary-banner {
+    background: linear-gradient(135deg, #0F1724 0%, #1A2C4E 100%);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    color: white;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .sb-stat { text-align: center; }
+  .sb-val { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; }
+  .sb-lbl { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 2px; }
+  .sb-divider { width: 1px; background: rgba(255,255,255,.15); align-self: stretch; }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 16px; border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+  }
+  .alert-warn { background: var(--amber-light); border: 1px solid #FCD34D; }
+  .alert-info { background: var(--accent-light); border: 1px solid #93C5FD; }
+  .alert-danger { background: var(--red-light); border: 1px solid #FCA5A5; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-text { font-size: 13px; line-height: 1.5; }
+  .alert-text strong { font-weight: 700; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-12 { grid-template-columns: 1fr; }
+    .main { padding: 20px 16px; }
+    .header { padding: 20px 16px; flex-direction: column; }
+    .tabs-bar { padding: 0 16px; overflow-x: auto; }
+    .summary-banner { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="header-eyebrow">Vendor Central · Amazon Advertising</div>
+    <div class="header-title">Goli Nutrition — VC Ads Dashboard</div>
+    <div class="header-subtitle">YTD Performance Analysis · January – June 17, 2026 · 300 Campaigns Analyzed</div>
+  </div>
+  <div class="header-actions no-print">
+    <button class="btn btn-outline" onclick="window.print()">🖨 Print / PDF</button>
+    <button class="btn btn-primary" onclick="exportHTML()">⬇ Export HTML</button>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar no-print">
+  <button class="tab-btn active" onclick="switchTab(&#39;tab1&#39;,this)">📊 Ad Type Performance</button>
+  <button class="tab-btn" onclick="switchTab(&#39;tab2&#39;,this)">📋 Plan of Action</button>
+  <button class="tab-btn" onclick="switchTab(&#39;tab3&#39;,this)">💡 ROAS Optimization</button>
+  <button class="tab-btn" onclick="switchTab(&#39;tab4&#39;,this)">🔍 Search Term Analysis · L30</button>
+  <button class="tab-btn" onclick="switchTab(&#39;tab5&#39;,this)">💎 ASIN Opportunity &amp; B2B Scale</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ TAB 1 ═══ -->
+<div class="main">
+<div id="tab1" class="tab-content active">
+
+  <!-- SUMMARY BANNER -->
+  <div class="summary-banner">
+    <div class="sb-stat"><div class="sb-val">$2.07M</div><div class="sb-lbl">YTD Total Spend</div></div>
+    <div class="sb-divider"></div>
+    <div class="sb-stat"><div class="sb-val">$5.71M</div><div class="sb-lbl">YTD Paid Sales</div></div>
+    <div class="sb-divider"></div>
+    <div class="sb-stat"><div class="sb-val">2.76x</div><div class="sb-lbl">Blended ROAS</div></div>
+    <div class="sb-divider"></div>
+    <div class="sb-stat"><div class="sb-val">36.2%</div><div class="sb-lbl">Blended ACOS</div></div>
+    <div class="sb-divider"></div>
+    <div class="sb-stat"><div class="sb-val">178</div><div class="sb-lbl">Enabled Campaigns</div></div>
+    <div class="sb-divider"></div>
+    <div class="sb-stat"><div class="sb-val">300</div><div class="sb-lbl">Total Campaigns</div></div>
+  </div>
+
+  <div class="alert alert-warn">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text"><strong>ACOS Alert:</strong> Blended ACOS of 36.2% significantly exceeds the 15% target. Jan–Apr saw 35–53% ACOS. June is trending better at 30.1%, signaling improving efficiency. Immediate action on low-ROAS campaigns is critical to close the gap.</div>
+  </div>
+
+  <!-- MONTHLY SUMMARY -->
+  <div class="section-header">
+    <div class="section-label">Section 1A</div>
+    <div class="section-title">Monthly Performance — VC 2026</div>
+    <div class="section-desc">Spend, Paid Sales, ACOS, COGS Revenue &amp; TACOS by month</div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title">Monthly Summary Table</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Ad Spend</th>
+            <th>Paid Sales</th>
+            <th>ACOS</th>
+            <th>ROAS</th>
+            <th>COGS Revenue</th>
+            <th>TACOS</th>
+            <th>Efficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="monthly-row">
+            <td>Jan 2026</td>
+            <td>$106,897</td>
+            <td>$200,230</td>
+            <td class="acos-cell acos-high">53.4%</td>
+            <td>1.87x</td>
+            <td>$1,920,046</td>
+            <td class="acos-cell acos-ok">5.6%</td>
+            <td><span class="pill pill-pause">Poor</span></td>
+          </tr>
+          <tr class="monthly-row">
+            <td>Feb 2026</td>
+            <td>$339,598</td>
+            <td>$994,955</td>
+            <td class="acos-cell acos-high">34.1%</td>
+            <td>2.93x</td>
+            <td>$1,205,031</td>
+            <td class="acos-cell acos-high">28.2%</td>
+            <td><span class="pill pill-watch">Fair</span></td>
+          </tr>
+          <tr class="monthly-row">
+            <td>Mar 2026</td>
+            <td>$480,680</td>
+            <td>$1,379,590</td>
+            <td class="acos-cell acos-high">34.8%</td>
+            <td>2.87x</td>
+            <td>$1,859,734</td>
+            <td class="acos-cell acos-high">25.8%</td>
+            <td><span class="pill pill-watch">Fair</span></td>
+          </tr>
+          <tr class="monthly-row">
+            <td>Apr 2026</td>
+            <td>$473,846</td>
+            <td>$1,179,281</td>
+            <td class="acos-cell acos-high">40.2%</td>
+            <td>2.49x</td>
+            <td>$1,914,005</td>
+            <td class="acos-cell acos-high">24.8%</td>
+            <td><span class="pill pill-pause">Poor</span></td>
+          </tr>
+          <tr class="monthly-row">
+            <td>May 2026</td>
+            <td>$438,015</td>
+            <td>$1,192,500</td>
+            <td class="acos-cell acos-high">36.7%</td>
+            <td>2.72x</td>
+            <td>$2,288,694</td>
+            <td class="acos-cell acos-mid">19.1%</td>
+            <td><span class="pill pill-watch">Fair</span></td>
+          </tr>
+          <tr class="monthly-row" style="background:#F0F9FF;">
+            <td><strong>Jun* (partial)</strong></td>
+            <td><strong>$228,934</strong></td>
+            <td><strong>$761,561</strong></td>
+            <td class="acos-cell acos-mid"><strong>30.1%</strong></td>
+            <td><strong>3.33x</strong></td>
+            <td><strong>$1,730,916</strong></td>
+            <td class="acos-cell acos-ok"><strong>13.2%</strong></td>
+            <td><span class="pill pill-scale">Improving</span></td>
+          </tr>
+          <tr style="background:#F7F8FA; font-weight:700;">
+            <td>YTD Total</td>
+            <td>$2,067,970</td>
+            <td>$5,708,118</td>
+            <td class="acos-cell acos-high">36.2%</td>
+            <td>2.76x</td>
+            <td>$10,918,429</td>
+            <td class="acos-cell acos-mid">18.9%</td>
+            <td><span class="pill pill-watch">In Progress</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TREND CHART SVG -->
+  <div class="grid grid-2" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="card-title">ACOS Trend (Jan–Jun*)</div>
+      <div class="chart-area">
+        <svg viewBox="0 0 360 140" class="mini-chart">
+          <!-- grid -->
+          <line x1="40" y1="10" x2="340" y2="10" stroke="#E2E6EC" stroke-width="1"></line>
+          <line x1="40" y1="40" x2="340" y2="40" stroke="#E2E6EC" stroke-width="1"></line>
+          <line x1="40" y1="70" x2="340" y2="70" stroke="#E2E6EC" stroke-width="1"></line>
+          <line x1="40" y1="100" x2="340" y2="100" stroke="#E2E6EC" stroke-width="1"></line>
+          <!-- y labels -->
+          <text x="36" y="13" fill="#8D97A5" font-size="9" text-anchor="end">60%</text>
+          <text x="36" y="43" fill="#8D97A5" font-size="9" text-anchor="end">45%</text>
+          <text x="36" y="73" fill="#8D97A5" font-size="9" text-anchor="end">30%</text>
+          <text x="36" y="103" fill="#8D97A5" font-size="9" text-anchor="end">15%</text>
+          <!-- 15% target line -->
+          <line x1="40" y1="100" x2="340" y2="100" stroke="#0E9F6E" stroke-width="1.5" stroke-dasharray="4,3" opacity=".6"></line>
+          <text x="344" y="103" fill="#0E9F6E" font-size="8">Target</text>
+          <!-- ACOS line: Jan=53.4→y=25, Feb=34.1→y=59, Mar=34.8→y=57, Apr=40.2→y=47, May=36.7→y=54, Jun=30.1→y=64 -->
+          <!-- Scale: 0%=130, 60%=10 → 1% = 2px. val: y = 130 - (acos/60)*120 -->
+          <!-- Jan 53.4: y=130-107=23; Feb 34.1: y=130-68=62; Mar 34.8: y=130-70=60; Apr 40.2: y=130-80=50; May 36.7: y=130-73=57; Jun 30.1: y=130-60=70 -->
+          <!-- x: 40 + (i/5)*300 -->
+          <polyline points="40,23 100,62 160,60 220,50 280,57 340,70" fill="none" stroke="#E02424" stroke-width="2.5" stroke-linejoin="round"></polyline>
+          <!-- area fill -->
+          <polygon points="40,23 100,62 160,60 220,50 280,57 340,70 340,130 40,130" fill="url(#acos-grad)" opacity=".15"></polygon>
+          <defs>
+            <lineargradient id="acos-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#E02424"></stop>
+              <stop offset="100%" stop-color="#E02424" stop-opacity="0"></stop>
+            </lineargradient>
+          </defs>
+          <!-- dots -->
+          <circle cx="40" cy="23" r="4" fill="#E02424"></circle>
+          <circle cx="100" cy="62" r="4" fill="#E02424"></circle>
+          <circle cx="160" cy="60" r="4" fill="#E02424"></circle>
+          <circle cx="220" cy="50" r="4" fill="#E02424"></circle>
+          <circle cx="280" cy="57" r="4" fill="#E02424"></circle>
+          <circle cx="340" cy="70" r="4" fill="#1A56DB"></circle>
+          <!-- labels -->
+          <text x="40" y="14" fill="#E02424" font-size="9" text-anchor="middle" font-weight="700">53.4%</text>
+          <text x="100" y="54" fill="#5A6475" font-size="9" text-anchor="middle">34.1%</text>
+          <text x="160" y="52" fill="#5A6475" font-size="9" text-anchor="middle">34.8%</text>
+          <text x="220" y="42" fill="#E02424" font-size="9" text-anchor="middle" font-weight="700">40.2%</text>
+          <text x="280" y="49" fill="#5A6475" font-size="9" text-anchor="middle">36.7%</text>
+          <text x="340" y="62" fill="#1A56DB" font-size="9" text-anchor="middle" font-weight="700">30.1%</text>
+          <!-- x labels -->
+          <text x="40" y="120" fill="#8D97A5" font-size="9" text-anchor="middle">Jan</text>
+          <text x="100" y="120" fill="#8D97A5" font-size="9" text-anchor="middle">Feb</text>
+          <text x="160" y="120" fill="#8D97A5" font-size="9" text-anchor="middle">Mar</text>
+          <text x="220" y="120" fill="#8D97A5" font-size="9" text-anchor="middle">Apr</text>
+          <text x="280" y="120" fill="#8D97A5" font-size="9" text-anchor="middle">May</text>
+          <text x="340" y="120" fill="#1A56DB" font-size="9" text-anchor="middle" font-weight="600">Jun*</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Monthly Spend &amp; Sales ($K)</div>
+      <div class="chart-area">
+        <svg viewBox="0 0 360 140" class="mini-chart">
+          <!-- bars: spend and sales per month. x positions: 40,100,160,220,280,340 -->
+          <!-- scale: max ~$1400K → bar height 100px → 1K = 0.071px -->
+          <!-- Jan: spend=107K→7.6px, sales=200K→14.2px; Feb: 340K→24px, 995K→70.6px; etc -->
+          <!-- bar width = 20, grouped: spend bar at x-10, sales bar at x+3 -->
+          <defs>
+            <lineargradient id="spend-g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A56DB"></stop><stop offset="100%" stop-color="#3B82F6"></stop>
+            </lineargradient>
+            <lineargradient id="sales-g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0E9F6E"></stop><stop offset="100%" stop-color="#34D399"></stop>
+            </lineargradient>
+          </defs>
+          <!-- base line -->
+          <line x1="20" y1="110" x2="350" y2="110" stroke="#E2E6EC" stroke-width="1"></line>
+          <!-- Jan -->
+          <rect x="22" y="102" width="14" height="8" fill="url(#spend-g)" rx="2"></rect>
+          <rect x="37" y="96" width="14" height="14" fill="url(#sales-g)" rx="2"></rect>
+          <!-- Feb -->
+          <rect x="82" y="86" width="14" height="24" fill="url(#spend-g)" rx="2"></rect>
+          <rect x="97" y="40" width="14" height="70" fill="url(#sales-g)" rx="2"></rect>
+          <!-- Mar -->
+          <rect x="142" y="76" width="14" height="34" fill="url(#spend-g)" rx="2"></rect>
+          <rect x="157" y="12" width="14" height="98" fill="url(#sales-g)" rx="2"></rect>
+          <!-- Apr -->
+          <rect x="202" y="77" width="14" height="33" fill="url(#spend-g)" rx="2"></rect>
+          <rect x="217" y="26" width="14" height="84" fill="url(#sales-g)" rx="2"></rect>
+          <!-- May -->
+          <rect x="262" y="79" width="14" height="31" fill="url(#spend-g)" rx="2"></rect>
+          <rect x="277" y="25" width="14" height="85" fill="url(#sales-g)" rx="2"></rect>
+          <!-- Jun* -->
+          <rect x="317" y="94" width="14" height="16" fill="url(#spend-g)" rx="2" opacity=".7"></rect>
+          <rect x="332" y="56" width="14" height="54" fill="url(#sales-g)" rx="2" opacity=".7"></rect>
+          <!-- x labels -->
+          <text x="36" y="123" fill="#8D97A5" font-size="9" text-anchor="middle">Jan</text>
+          <text x="96" y="123" fill="#8D97A5" font-size="9" text-anchor="middle">Feb</text>
+          <text x="156" y="123" fill="#8D97A5" font-size="9" text-anchor="middle">Mar</text>
+          <text x="216" y="123" fill="#8D97A5" font-size="9" text-anchor="middle">Apr</text>
+          <text x="276" y="123" fill="#8D97A5" font-size="9" text-anchor="middle">May</text>
+          <text x="336" y="123" fill="#1A56DB" font-size="9" text-anchor="middle">Jun*</text>
+          <!-- legend -->
+          <rect x="20" y="132" width="8" height="5" fill="#1A56DB" rx="1"></rect>
+          <text x="31" y="137" fill="#5A6475" font-size="8">Spend</text>
+          <rect x="70" y="132" width="8" height="5" fill="#0E9F6E" rx="1"></rect>
+          <text x="81" y="137" fill="#5A6475" font-size="8">Paid Sales</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD TYPE PERFORMANCE -->
+  <div class="section-header">
+    <div class="section-label">Section 1B</div>
+    <div class="section-title">Ad Type Performance Breakdown</div>
+    <div class="section-desc">SP vs SB vs SD — enabled campaigns with spend</div>
+  </div>
+
+  <div class="grid grid-3" style="margin-bottom:24px;">
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <span class="type-badge type-sp" style="font-size:13px;padding:4px 10px;">SP</span>
+        <span style="font-weight:700;font-size:15px;">Sponsored Products</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div><div class="kpi-label">Campaigns</div><div class="kpi-value" style="font-size:22px;">122</div></div>
+        <div><div class="kpi-label">ROAS</div><div class="kpi-value" style="font-size:22px;color:#0E9F6E;">3.26x</div></div>
+        <div><div class="kpi-label">Spend</div><div style="font-weight:700;font-size:16px;">$806K</div></div>
+        <div><div class="kpi-label">Sales</div><div style="font-weight:700;font-size:16px;">$2.63M</div></div>
+        <div><div class="kpi-label">ACOS</div><div style="font-weight:700;color:#D97706;">30.7%</div></div>
+        <div><div class="kpi-label">Purchases</div><div style="font-weight:700;">134,964</div></div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+        <div class="kpi-label" style="margin-bottom:6px;">Spend Share</div>
+        <div style="background:var(--surface2);border-radius:4px;height:8px;overflow:hidden;">
+          <div style="width:39%;height:100%;background:linear-gradient(90deg,#1A56DB,#3B82F6);border-radius:4px;"></div>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">39% of total spend</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <span class="type-badge type-sb" style="font-size:13px;padding:4px 10px;">SB</span>
+        <span style="font-weight:700;font-size:15px;">Sponsored Brands</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div><div class="kpi-label">Campaigns</div><div class="kpi-value" style="font-size:22px;">38</div></div>
+        <div><div class="kpi-label">ROAS</div><div class="kpi-value" style="font-size:22px;color:#D97706;">2.56x</div></div>
+        <div><div class="kpi-label">Spend</div><div style="font-weight:700;font-size:16px;">$1.15M</div></div>
+        <div><div class="kpi-label">Sales</div><div style="font-weight:700;font-size:16px;">$2.94M</div></div>
+        <div><div class="kpi-label">ACOS</div><div style="font-weight:700;color:#E02424;">39.1%</div></div>
+        <div><div class="kpi-label">Purchases</div><div style="font-weight:700;">111,723</div></div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+        <div class="kpi-label" style="margin-bottom:6px;">Spend Share</div>
+        <div style="background:var(--surface2);border-radius:4px;height:8px;overflow:hidden;">
+          <div style="width:55%;height:100%;background:linear-gradient(90deg,#7C3AED,#A78BFA);border-radius:4px;"></div>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">55.6% of total spend</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <span class="type-badge type-sd" style="font-size:13px;padding:4px 10px;">SD</span>
+        <span style="font-weight:700;font-size:15px;">Sponsored Display</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div><div class="kpi-label">Campaigns</div><div class="kpi-value" style="font-size:22px;">15</div></div>
+        <div><div class="kpi-label">ROAS</div><div class="kpi-value" style="font-size:22px;color:#E02424;">N/A</div></div>
+        <div><div class="kpi-label">Spend</div><div style="font-weight:700;font-size:16px;">$0</div></div>
+        <div><div class="kpi-label">Sales</div><div style="font-weight:700;font-size:16px;">$0</div></div>
+        <div><div class="kpi-label">ACOS</div><div style="font-weight:700;color:#8D97A5;">—</div></div>
+        <div><div class="kpi-label">Status</div><div style="font-weight:700;">All Paused</div></div>
+      </div>
+      <div style="margin-top:14px;padding:10px;background:var(--amber-light);border-radius:8px;">
+        <div style="font-size:12px;color:#92400E;font-weight:600;">⚠ All SD campaigns paused. Consider reactivating purchase remarketing for ACV &amp; Ashwagandha with small test budgets.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENABLED ENABLED CAMPAIGNS: SCALE vs PAUSE -->
+  <div class="section-header">
+    <div class="section-label">Section 1C</div>
+    <div class="section-title">Campaign Segmentation — Scale vs Pause (Enabled Only)</div>
+    <div class="section-desc">Based on ROAS threshold: ≥3.0 = Scale, 2–3 = Monitor, &lt;2.0 = Review/Pause</div>
+  </div>
+
+  <div class="grid grid-2" style="margin-bottom:8px;">
+    <!-- SCALE CAMPAIGNS -->
+    <div class="card">
+      <div class="card-title" style="color:var(--green);">🚀 HIGH ROAS — Scale Budget (ROAS ≥ 3.0x, Spend ≥ $500)</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Type</th>
+              <th>ROAS</th>
+              <th>Spend</th>
+              <th>Sales</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="campaign-name">Bundle [ACV Ash Bio] | SB | Headline | Branded | KWR<small>Highest revenue driver</small></td><td><span class="type-badge type-sb">SB</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:60%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">3.04x</span></div></td><td>$376K</td><td>$1.14M</td><td><span class="pill pill-scale">Scale +15%</span></td></tr>
+            <tr><td class="campaign-name">Ashwagandha | SP | Branded | KWP<small>High purchase volume</small></td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:83%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">4.15x</span></div></td><td>$47K</td><td>$197K</td><td><span class="pill pill-scale">Scale +20%</span></td></tr>
+            <tr><td class="campaign-name">Bundle [ACV Ash Bio] | SP | Branded | KWB<small>Best ROAS in branded</small></td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:100%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">5.14x</span></div></td><td>$37K</td><td>$193K</td><td><span class="pill pill-scale">Scale +25%</span></td></tr>
+            <tr><td class="campaign-name">ACV | SP | Branded | PT<small>High CVR, low waste</small></td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:100%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">6.20x</span></div></td><td>$22K</td><td>$138K</td><td><span class="pill pill-scale">Scale +30%</span></td></tr>
+            <tr><td class="campaign-name">Catch All | SP | Auto<small>Strong catch-all ROAS</small></td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:78%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">3.91x</span></div></td><td>$58K</td><td>$229K</td><td><span class="pill pill-scale">Scale +15%</span></td></tr>
+            <tr><td class="campaign-name">Biotics | SP | Branded | KWP</td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:75%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">3.76x</span></div></td><td>$37K</td><td>$140K</td><td><span class="pill pill-scale">Scale +15%</span></td></tr>
+            <tr><td class="campaign-name">ACV | SP | Branded | KWP</td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:96%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">4.82x</span></div></td><td>$15K</td><td>$72K</td><td><span class="pill pill-scale">Scale +20%</span></td></tr>
+            <tr><td class="campaign-name">Ashwagandha | SP | Branded | PT</td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:87%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">4.36x</span></div></td><td>$17K</td><td>$76K</td><td><span class="pill pill-scale">Scale +20%</span></td></tr>
+            <tr><td class="campaign-name">Sleep | SP | Branded | PT</td><td><span class="type-badge type-sp">SP</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:81%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">4.07x</span></div></td><td>$8.3K</td><td>$33.8K</td><td><span class="pill pill-scale">Scale +20%</span></td></tr>
+            <tr><td class="campaign-name">Ashwagandha | SB | Headline | Branded | KWR</td><td><span class="type-badge type-sb">SB</span></td><td><div class="roas-bar-wrap"><div class="roas-bar"><div class="roas-bar-fill" style="width:60%;background:#0E9F6E;"></div></div><span class="roas-num" style="color:#0E9F6E;">2.14x</span></div></td><td>$132K</td><td>$283K</td><td><span class="pill pill-scale">Monitor</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAUSE CAMPAIGNS -->
+    <div class="card">
+      <div class="card-title" style="color:var(--red);">🛑 LOW ROAS — Review / Pause (ROAS &lt; 2.0x, Spend ≥ $1K)</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Type</th>
+              <th>ROAS</th>
+              <th>ACOS</th>
+              <th>Spend</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="campaign-name">Immune | SP | Exact<small>Wasted spend, no traction</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--red);font-weight:700;">0.58x</span></td><td class="acos-high acos-cell">174%</td><td>$1.9K</td><td><span class="pill pill-pause">Pause Now</span></td></tr>
+            <tr><td class="campaign-name">Supergreens | SP | Auto<small>Structural demand issue</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--red);font-weight:700;">0.81x</span></td><td class="acos-high acos-cell">123%</td><td>$1.2K</td><td><span class="pill pill-pause">Pause Now</span></td></tr>
+            <tr><td class="campaign-name">SuperFruits | SP | Auto<small>Product demand weak</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--red);font-weight:700;">0.90x</span></td><td class="acos-high acos-cell">112%</td><td>$7K</td><td><span class="pill pill-pause">Pause Now</span></td></tr>
+            <tr><td class="campaign-name">Immune | SP | Auto<small>Low conversion rate</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--red);font-weight:700;">0.90x</span></td><td class="acos-high acos-cell">111%</td><td>$1.9K</td><td><span class="pill pill-pause">Pause Now</span></td></tr>
+            <tr><td class="campaign-name">Beet Root | SB | Headline | Exact<small>High spend, poor return</small></td><td><span class="type-badge type-sb">SB</span></td><td><span style="color:var(--red);font-weight:700;">0.80x</span></td><td class="acos-high acos-cell">124%</td><td>$16K</td><td><span class="pill pill-pause">Pause / Reduce</span></td></tr>
+            <tr><td class="campaign-name">Sleep | SB | Video | KWE<small>Barely breaking even</small></td><td><span class="type-badge type-sb">SB</span></td><td><span style="color:var(--amber);font-weight:700;">1.02x</span></td><td class="acos-high acos-cell">98%</td><td>$2.2K</td><td><span class="pill pill-watch">Review Bids</span></td></tr>
+            <tr><td class="campaign-name">Beet Root | SP | Exact<small>Keyword level review needed</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--amber);font-weight:700;">1.05x</span></td><td class="acos-high acos-cell">96%</td><td>$11.5K</td><td><span class="pill pill-watch">Reduce Bids</span></td></tr>
+            <tr><td class="campaign-name">Creatine | SB | Video | KWE<small>Creative may need refresh</small></td><td><span class="type-badge type-sb">SB</span></td><td><span style="color:var(--amber);font-weight:700;">1.23x</span></td><td class="acos-high acos-cell">81%</td><td>$1.9K</td><td><span class="pill pill-watch">Reduce Bids</span></td></tr>
+            <tr><td class="campaign-name">Sleep | SP | Exact<small>Non-branded keywords weak</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--amber);font-weight:700;">1.78x</span></td><td class="acos-mid acos-cell">56%</td><td>$13K</td><td><span class="pill pill-watch">Bid Down -20%</span></td></tr>
+            <tr><td class="campaign-name">Matcha | SP | Auto<small>Reduce auto, push manual</small></td><td><span class="type-badge type-sp">SP</span></td><td><span style="color:var(--amber);font-weight:700;">1.81x</span></td><td class="acos-mid acos-cell">55%</td><td>$8K</td><td><span class="pill pill-watch">Reduce Budget</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab1 -->
+
+<!-- ═══════════════════════════════════════════════════ TAB 2 ═══ -->
+<div id="tab2" class="tab-content">
+
+  <div class="section-header">
+    <div class="section-label">Section 2</div>
+    <div class="section-title">Plan of Action — Trend-Based Optimization</div>
+    <div class="section-desc">Prioritized actions based on monthly trend analysis and ACOS trajectory toward 15% target</div>
+  </div>
+
+  <div class="alert alert-info">
+    <div class="alert-icon">📈</div>
+    <div class="alert-text"><strong>Positive Signal:</strong> June ACOS dropped to 30.1% (from 40.2% in April), and TACOS hit 13.2% — below the 15% target. This confirms the efficiency trend is improving. Actions below are designed to sustain and accelerate this.</div>
+  </div>
+
+  <div class="grid grid-12" style="margin-bottom:24px;">
+    <div>
+      <div class="card-title" style="margin-bottom:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);">Priority Level</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--red-light);border-radius:8px;">
+          <span style="font-size:18px;">🔴</span>
+          <div><div style="font-weight:700;font-size:13px;color:var(--red);">P1 — Immediate</div><div style="font-size:11px;color:#9B1C1C;">Do this week</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--amber-light);border-radius:8px;">
+          <span style="font-size:18px;">🟡</span>
+          <div><div style="font-weight:700;font-size:13px;color:var(--amber);">P2 — Short Term</div><div style="font-size:11px;color:#92400E;">Next 2 weeks</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--accent-light);border-radius:8px;">
+          <span style="font-size:18px;">🔵</span>
+          <div><div style="font-weight:700;font-size:13px;color:var(--accent);">P3 — Strategic</div><div style="font-size:11px;color:#1E40AF;">Next 30 days</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;" class="card">
+        <div class="card-title">Trend Scorecard</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:var(--text-secondary);">ACOS Trend</span>
+            <span class="pill pill-scale">Improving ↓</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:var(--text-secondary);">TACOS June</span>
+            <span class="pill pill-scale">13.2% ✓</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:var(--text-secondary);">SB Efficiency</span>
+            <span class="pill pill-watch">Needs Work</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:var(--text-secondary);">SD Coverage</span>
+            <span class="pill pill-pause">All Paused</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:var(--text-secondary);">Budget Wasted</span>
+            <span class="pill pill-pause">~$45K+ Identified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- P1 ACTIONS -->
+      <div style="margin-bottom:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);">🔴 Priority 1 — Immediate Actions</div>
+
+      <div class="poa-item" style="border-left:3px solid var(--red);background:var(--red-light);">
+        <div class="poa-icon" style="background:var(--red);color:white;">🛑</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Pause 5 Zero/Near-Zero ROAS Enabled Campaigns</div>
+            <span class="poa-priority priority-1">P1</span>
+          </div>
+          <div class="poa-desc">Immediately pause: <strong>Immune SP Exact (ROAS 0.58x)</strong>, SuperFruits Auto (0.90x), Immune Auto (0.90x), Supergreens Auto (0.81x), ACV Branded KWB (0.89x). Combined wasteful spend: ~$14K on non-converting traffic. Redirect these budgets to Branded KWP/KWE winners.</div>
+        </div>
+      </div>
+
+      <div class="poa-item" style="border-left:3px solid var(--red);background:var(--red-light);">
+        <div class="poa-icon" style="background:var(--red);color:white;">💸</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Reduce Beet Root Spend by 40%</div>
+            <span class="poa-priority priority-1">P1</span>
+          </div>
+          <div class="poa-desc">Beet Root is consistently the weakest product cluster — SB Headline Exact (ROAS 0.80x, $16K spend), SP Exact (1.05x, $11.5K), SP Auto (1.77x, $4.4K), SB Video KWE (1.57x, $12.2K). Total Beet Root waste: ~$44K at poor ROAS. Cut budgets 40%, retain only KWP branded campaigns.</div>
+        </div>
+      </div>
+
+      <div class="poa-item" style="border-left:3px solid var(--red);background:var(--red-light);">
+        <div class="poa-icon" style="background:var(--red);color:white;">📊</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Scale Top 5 ROAS Performers by 20–30%</div>
+            <span class="poa-priority priority-1">P1</span>
+          </div>
+          <div class="poa-desc">Increase daily budgets for: Bundle ACV-Ash-Bio SB Branded KWR (+15%), ACV SP Branded PT (+30%), Bundle KWB (+25%), ACV SP KWP (+20%), Sleep SP Branded PT (+20%). These campaigns have runway to grow without degrading ROAS given strong CVR.</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div style="margin-bottom:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);">🟡 Priority 2 — Short-Term (Next 2 Weeks)</div>
+
+      <div class="poa-item" style="border-left:3px solid var(--amber);">
+        <div class="poa-icon" style="background:var(--amber);color:white;">🎯</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Bid Strategy Audit: Switch PORTFOLIO_OUT_OF_BUDGET Campaigns</div>
+            <span class="poa-priority priority-2">P2</span>
+          </div>
+          <div class="poa-desc">Multiple high-performing campaigns show "PORTFOLIO_OUT_OF_BUDGET" status — especially ACV, Ashwagandha, Biotics branded. This means they're hitting budget caps during peak hours. Either increase portfolio budgets by 25% or move top performers to standalone campaigns with higher individual caps.</div>
+        </div>
+      </div>
+
+      <div class="poa-item" style="border-left:3px solid var(--amber);">
+        <div class="poa-icon" style="background:var(--amber);color:white;">⬇️</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Bid Down Sleep, Creatine, Matcha Non-Branded by 20%</div>
+            <span class="poa-priority priority-2">P2</span>
+          </div>
+          <div class="poa-desc">Sleep SP Exact (ROAS 1.78x), Creatine SP KWR (1.71x), Matcha SP Auto (1.81x), Creatine SB Video KWE (1.23x) — these are above 50% ACOS. Reduce max CPCs by 20% to improve efficiency without pausing. Set negative keyword tiers for broad matches in these campaigns.</div>
+        </div>
+      </div>
+
+      <div class="poa-item" style="border-left:3px solid var(--amber);">
+        <div class="poa-icon" style="background:var(--amber);color:white;">🔄</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Reactivate SD Remarketing — ACV &amp; Ashwagandha</div>
+            <span class="poa-priority priority-2">P2</span>
+          </div>
+          <div class="poa-desc">All SD campaigns are paused. Purchase remarketing (retargeting recent buyers) is highly efficient at VC. Launch a test with $50/day cap on: ACV Purchase Remarketing, Ashwagandha Purchase Remarketing. These audiences have already shown intent; CVR should be high and ACOS low.</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div style="margin-bottom:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);">🔵 Priority 3 — Strategic (Next 30 Days)</div>
+
+      <div class="poa-item" style="border-left:3px solid var(--accent);">
+        <div class="poa-icon" style="background:var(--accent);color:white;">🧪</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">June Trajectory Suggests Q3 Budget Realignment</div>
+            <span class="poa-priority priority-3">P3</span>
+          </div>
+          <div class="poa-desc">June TACOS (13.2%) is now below target. If this pace continues, Q3 should see significantly improved overall efficiency. Plan: reduce SB Headline non-branded by 20% in July, reinvest into top SP Branded campaigns. Target Q3 blended ACOS of 25% as interim milestone toward 15%.</div>
+        </div>
+      </div>
+
+      <div class="poa-item" style="border-left:3px solid var(--accent);">
+        <div class="poa-icon" style="background:var(--accent);color:white;">🛍️</div>
+        <div class="poa-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="poa-title">Build New Biotics-Zero Sugar &amp; ACV-Zero Sugar Manual Campaigns</div>
+            <span class="poa-priority priority-3">P3</span>
+          </div>
+          <div class="poa-desc">Biotics Zero Sugar Auto (ROAS 37.4x) and ACV Zero Sugar Auto (63.6x) show ultra-high ROAS with minimal spend — meaning they've found high-intent keywords at low CPCs. Mine these auto campaigns' search term reports and migrate best terms to manual campaigns with higher bids to scale this efficiency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab2 -->
+
+<!-- ═══════════════════════════════════════════════════ TAB 3 ═══ -->
+<div id="tab3" class="tab-content">
+
+  <div class="section-header">
+    <div class="section-label">Section 3</div>
+    <div class="section-title">ROAS Optimization Recommendations</div>
+    <div class="section-desc">Strategic, structural, and tactical suggestions to improve ROAS from 2.76x toward 4x+ target</div>
+  </div>
+
+  <!-- KPI TARGET PROGRESS -->
+  <div class="grid grid-4" style="margin-bottom:24px;">
+    <div class="card kpi">
+      <div class="kpi-label">Current Blended ROAS</div>
+      <div class="kpi-value" style="color:#D97706;">2.76x</div>
+      <div class="kpi-sub">Target: 6.67x (15% ACOS)</div>
+      <div class="kpi-badge badge-amber">↑ Below Target</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">SP ROAS</div>
+      <div class="kpi-value" style="color:#0E9F6E;">3.26x</div>
+      <div class="kpi-sub">30.7% ACOS — better channel</div>
+      <div class="kpi-badge badge-green">Best Performer</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">SB ROAS</div>
+      <div class="kpi-value" style="color:#E02424;">2.56x</div>
+      <div class="kpi-sub">39.1% ACOS — drag on overall</div>
+      <div class="kpi-badge badge-red">Needs Fix</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">June ROAS (Partial)</div>
+      <div class="kpi-value" style="color:#1A56DB;">3.33x</div>
+      <div class="kpi-sub">Best month so far in 2026</div>
+      <div class="kpi-badge badge-blue">↑ Improving</div>
+    </div>
+  </div>
+
+  <!-- SUGGESTIONS -->
+  <div class="grid grid-2" style="gap:20px;">
+    <div>
+      <div style="margin-bottom:12px;font-size:13px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.8px;">⚡ Quick Win Optimizations</div>
+
+      <div class="suggestion-card quick">
+        <div class="sug-header">
+          <span class="sug-tag tag-quick">Quick Win</span>
+          <span class="sug-title">Mine High-ROAS Auto Campaigns for Manual Keywords</span>
+        </div>
+        <div class="sug-body">Biotics Zero Sugar Auto (37x ROAS), ACV Zero Sugar Auto (63x), Bundle ACV-Ash-Bio Auto (111x) — these are goldmines. Pull their search term reports and harvest top converting terms into exact-match manual campaigns. Even at 5x higher CPCs, the CVR gap will likely maintain strong ROAS while driving higher volume.</div>
+        <div class="sug-impact">📈 Estimated ROAS impact: +0.3–0.5x blended within 30 days</div>
+      </div>
+
+      <div class="suggestion-card quick">
+        <div class="sug-header">
+          <span class="sug-tag tag-quick">Quick Win</span>
+          <span class="sug-title">Add Negative Keywords Across All Auto Campaigns</span>
+        </div>
+        <div class="sug-body">Auto campaigns like Catch All Auto, Bundle Auto, ACV Auto are serving irrelevant placements, diluting ROAS. Immediately add negatives for: competitor brand names in unrelated categories, generic supplement terms with &lt;0.5% CVR, and high-impression / zero-purchase terms. Target 2,000–3,000 negatives across auto portfolio.</div>
+        <div class="sug-impact">📈 Estimated ACOS reduction: 3–6% within 2 weeks</div>
+      </div>
+
+      <div class="suggestion-card quick">
+        <div class="sug-header">
+          <span class="sug-tag tag-quick">Quick Win</span>
+          <span class="sug-title">Fix Portfolio Budget Caps Throttling Best Campaigns</span>
+        </div>
+        <div class="sug-body">Numerous top campaigns show PORTFOLIO_OUT_OF_BUDGET status — ACV Branded PT (ROAS 6.2x!), ACV SP KWP (4.82x), Biotics KWP (3.76x). These campaigns are being starved of budget during peak hours. Increase portfolio-level budgets by 30% or extract these winners into standalone campaigns. Every hour they're budget-capped is lost revenue at your best ROAS.</div>
+        <div class="sug-impact">📈 Estimated revenue upside: $50–80K/month if uncapped</div>
+      </div>
+
+      <div class="suggestion-card bidding">
+        <div class="sug-header">
+          <span class="sug-tag tag-bidding">Bidding</span>
+          <span class="sug-title">Implement Dayparting — Reduce Bids 30% Between 2AM–7AM EST</span>
+        </div>
+        <div class="sug-body">VC campaigns run 24/7 but conversion rates are lowest in off-peak hours. Use bid rules or manual adjustments to reduce bids by 30% from 2AM–7AM EST (when ROAS is historically 40% worse). Reinvest those savings into 6PM–10PM EST peak window. This alone can improve blended ROAS by 10–15% without spending more.</div>
+        <div class="sug-impact">📈 Estimated ROAS uplift: +0.2–0.4x</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="margin-bottom:12px;font-size:13px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.8px;">🧱 Strategic &amp; Structural Changes</div>
+
+      <div class="suggestion-card strategic">
+        <div class="sug-header">
+          <span class="sug-tag tag-strategic">Strategic</span>
+          <span class="sug-title">Shift Spend Mix: SB → SP (35:55 Ratio to 45:45)</span>
+        </div>
+        <div class="sug-body">SB campaigns consume 55.6% of budget but only achieve 2.56x ROAS vs SP's 3.26x. The blended efficiency would improve meaningfully by shifting $100K/month from underperforming SB (non-branded Headline/Video) to high-ROAS SP (Branded KWE/KWP/PT). Retain top SB Branded campaigns (KWR/KWP) which are performing well — it's specifically the non-branded SB that's dragging returns.</div>
+        <div class="sug-impact">📈 Estimated blended ROAS improvement: +0.3–0.5x</div>
+      </div>
+
+      <div class="suggestion-card strategic">
+        <div class="sug-header">
+          <span class="sug-tag tag-strategic">Strategic</span>
+          <span class="sug-title">Product Focus: Double Down on ACV, Ashwagandha, Biotics</span>
+        </div>
+        <div class="sug-body">These 3 products dominate the high-ROAS campaign list. ACV PT (6.2x), Ashwagandha KWP (4.15x), Biotics KWP (3.76x), ACV KWP (4.82x). Meanwhile, Immune, SuperFruits, Supergreens, Matcha, and Beet Root consistently underperform across all campaign types. Reallocate budget from weak SKUs to core 3, and only maintain Beet Root/Creatine at minimal defensive branded levels.</div>
+        <div class="sug-impact">📈 Core SKU focus could lift overall ROAS by 0.5–0.8x</div>
+      </div>
+
+      <div class="suggestion-card structural">
+        <div class="sug-header">
+          <span class="sug-tag tag-structural">Structural</span>
+          <span class="sug-title">Consolidate Redundant Campaigns — Reduce to 60–70 Active</span>
+        </div>
+        <div class="sug-body">You have 300 campaigns but 121 are PAUSED and ~40 more show near-zero spend. Consolidating to 60–70 tightly managed campaigns would improve: (a) budget allocation efficiency, (b) learning signal concentration in better campaigns, (c) reduced management complexity. Archive all legacy "Jan 26", "ZS - Pre Post", old competitor campaigns that haven't spent meaningfully in 60+ days.</div>
+        <div class="sug-impact">📈 Better budget concentration improves algorithm learning</div>
+      </div>
+
+      <div class="suggestion-card structural">
+        <div class="sug-header">
+          <span class="sug-tag tag-structural">Structural</span>
+          <span class="sug-title">Launch SBV (Video) for Ashwagandha &amp; ACV Zero Sugar Variants</span>
+        </div>
+        <div class="sug-body">Zero Sugar variants have exceptionally high ROAS in auto campaigns but no dedicated video creative. A 15-second product-focus SBV showing the zero sugar benefit with a "Compare to regular gummies" angle could significantly boost CTR and CVR for the Zero Sugar line. Biotics No Sugar Branded PT (ROAS 3.41x) and ACV No Sugar Branded PT (4.20x) prove the demand exists — amplify with video creative.</div>
+        <div class="sug-impact">📈 SBV typically drives 15–25% higher CVR vs static ads</div>
+      </div>
+
+      <div class="suggestion-card strategic">
+        <div class="sug-header">
+          <span class="sug-tag tag-strategic">Strategic</span>
+          <span class="sug-title">Implement ROAS-Based Bid Rules (Automated)</span>
+        </div>
+        <div class="sug-body">Set up automated bid rules in Amazon Campaign Manager: (1) If 7-day ROAS &lt; 1.5x → reduce bids by 15%; (2) If 7-day ROAS &gt; 4x and spend &lt; $500 → increase budget by 20%; (3) If ACOS &gt; 60% for 14 days → pause targeting. This creates a systematic floor/ceiling that prevents budget waste without manual daily monitoring, especially important for the 122 active SP campaigns.</div>
+        <div class="sug-impact">📈 Systematic protection against ROAS degradation</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ROAS OPTIMIZATION MATRIX -->
+  <div class="section-header" style="margin-top:8px;">
+    <div class="section-title" style="font-size:17px;">Campaign ROAS Segmentation Matrix</div>
+    <div class="section-desc">Visual guide: which campaigns to scale, watch, or eliminate</div>
+  </div>
+
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border-radius:8px;overflow:hidden;">
+      <div style="background:var(--red-light);padding:18px;">
+        <div style="font-weight:700;color:var(--red);margin-bottom:10px;font-size:13px;">🛑 ELIMINATE / PAUSE<br><small style="font-weight:400;">ROAS &lt; 1.5x</small></div>
+        <ul style="font-size:12px;color:#7F1D1D;line-height:1.8;list-style:disc;padding-left:14px;">
+          <li>Immune SP Exact (0.58x)</li>
+          <li>Beet Root SB Exact (0.80x)</li>
+          <li>Supergreens Auto (0.81x)</li>
+          <li>SuperFruits Auto (0.90x)</li>
+          <li>Immune SP Auto (0.90x)</li>
+          <li>ACV Branded KWB (0.89x)</li>
+          <li>Sleep SB Video KWE (1.02x)</li>
+          <li>Beet Root SP Exact (1.05x)</li>
+        </ul>
+      </div>
+      <div style="background:var(--amber-light);padding:18px;">
+        <div style="font-weight:700;color:var(--amber);margin-bottom:10px;font-size:13px;">⚠️ MONITOR / OPTIMIZE<br><small style="font-weight:400;">ROAS 1.5x – 2.5x</small></div>
+        <ul style="font-size:12px;color:#92400E;line-height:1.8;list-style:disc;padding-left:14px;">
+          <li>Creatine SB Video KWE (1.23x)</li>
+          <li>Bundle Auto SP (1.54x)</li>
+          <li>Ashwagandha KWC (1.56x)</li>
+          <li>Beet Root SB Video (1.57x)</li>
+          <li>Creatine SP KWR (1.71x)</li>
+          <li>Sleep SP Exact (1.78x)</li>
+          <li>Biotics SB Video KWE (1.88x)</li>
+          <li>Magnesium SP Auto (1.90x)</li>
+        </ul>
+      </div>
+      <div style="background:var(--green-light);padding:18px;">
+        <div style="font-weight:700;color:var(--green);margin-bottom:10px;font-size:13px;">🚀 SCALE<br><small style="font-weight:400;">ROAS &gt; 2.5x</small></div>
+        <ul style="font-size:12px;color:#065F46;line-height:1.8;list-style:disc;padding-left:14px;">
+          <li>ACV SP Branded PT (6.20x) ⭐</li>
+          <li>Bundle KWB SP (5.14x) ⭐</li>
+          <li>ACV KWP SP (4.82x)</li>
+          <li>Ashwagandha KWP SP (4.15x)</li>
+          <li>Sleep SP Branded PT (4.07x)</li>
+          <li>Catch All SP Auto (3.91x)</li>
+          <li>Biotics KWP SP (3.76x)</li>
+          <li>Ashwagandha KWE SP (3.27x)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab3 -->
+
+<!-- ═══════════════════════════════════════════════════ TAB 4 ═══ -->
+<div id="tab4" class="tab-content">
+
+  <div class="section-header">
+    <div class="section-label">Section 4 — Search Term Report · Last 30 Days</div>
+    <div class="section-title">Search Term Intelligence: Scale, Block &amp; Optimize</div>
+    <div class="section-desc">999 search terms analysed · $216,614 spend · $812,158 sales · Blended ROAS 3.75x · ACOS 26.7%</div>
+  </div>
+
+  <!-- 5 KEY RECOMMENDATIONS -->
+  <div class="card" style="margin-bottom:24px;background:linear-gradient(135deg,#0F1724 0%,#1A2C4E 100%);color:white;border:none;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;">⭐ Top 5 Recommendations from L30 Search Term Report</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px;border-left:3px solid #0E9F6E;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#34D399;margin-bottom:6px;">① Scale — Budget Unlock</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px;">"goli trio" at 13.8x ROAS needs its own manual campaign</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);">Currently buried in Bundle KWB broad match at only $109 spend. This term has 43 orders at 7.2% ACOS. Create a dedicated EXACT campaign with $200/day budget to capture full volume.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px;border-left:3px solid #E02424;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#F87171;margin-bottom:6px;">② Block — Negative Now</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px;">"weight loss" burning $1,138 across campaigns at 0.39–0.90x ROAS</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);">Two instances of "weight loss" totalling 274+ clicks and $1,138 spend with only $542 in sales. Add as campaign-level negative exact across Catch All Auto and Bundle Auto immediately.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px;border-left:3px solid #3B82F6;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#93C5FD;margin-bottom:6px;">③ Add to Manual — Revenue Lift</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px;">"goli gummies 3 pack bundle" at 7.55x ROAS has $42K in sales — still in BROAD only</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);">This term drives $42K sales at 13.2% ACOS from BROAD match. Add as EXACT match to Bundle KWE campaign with a raised bid to capture more impression share and reduce waste from BROAD.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px;border-left:3px solid #F59E0B;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#FCD34D;margin-bottom:6px;">④ Competitor — Redirect Spend</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px;">"super beets heart chews" at 0.56x ROAS — competitor ASIN spend waste</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);">$295 spent targeting competitor product with 179% ACOS. Add "super beets" as negative phrase across all Beet Root campaigns. Redirect this budget to Goli Beets own branded KWP.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border-radius:10px;padding:16px;border-left:3px solid #A78BFA;grid-column:1/-1;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#C4B5FD;margin-bottom:6px;">⑤ Hidden Gems — ASIN-Level Scale Opportunity</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px;">Multiple ASIN targets in Catch All Auto showing 20–66x ROAS with minimal spend investment</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);">ASINs like b0f8rdyk3p (20.9x ROAS, $554 sales on $26 spend), b0f284xv4z (20.6x), b092h5dcjm (24.7x) are converting exceptionally in auto campaigns. Build dedicated Product Targeting (PT) MANUAL campaigns for these ASINs with $50/day each to scale systematically.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q&A BOXES -->
+  <div class="grid grid-3" style="margin-bottom:24px;">
+    <div class="card" style="border-top:4px solid var(--red);">
+      <div class="card-title" style="color:var(--red);">Q1 — Terms Where Spend Exceeds Sales</div>
+      <div class="kpi-value" style="font-size:36px;color:var(--red);">14</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">Search terms where ACOS &gt; 100%<br>(spend is greater than sales generated)</div>
+      <div style="background:var(--red-light);border-radius:8px;padding:12px;margin-top:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--red);">$2,781 spent → only $1,775 returned</div>
+        <div style="font-size:12px;color:#9B1C1C;margin-top:4px;">Net loss of <strong>$1,006</strong> on these 14 terms. Key offenders: "weight loss" ($1,138 total spend, 0.39–0.90x ROAS), "vitamins" ($350, 0.90x), "super beets heart chews" ($295, 0.56x), "goli renew nad" ($200, 0.53x)</div>
+      </div>
+      <div style="margin-top:10px;">
+        <table style="width:100%;font-size:11px;border-collapse:collapse;">
+          <thead><tr><th style="text-align:left;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">Term</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">ROAS</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">Spend</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:4px;">weight loss</td><td style="text-align:right;color:var(--red);font-weight:700;">0.39x</td><td style="text-align:right;">$953</td></tr>
+            <tr><td style="padding:4px;">vitamins</td><td style="text-align:right;color:var(--red);font-weight:700;">0.90x</td><td style="text-align:right;">$350</td></tr>
+            <tr><td style="padding:4px;">super beets heart chews</td><td style="text-align:right;color:var(--red);font-weight:700;">0.56x</td><td style="text-align:right;">$295</td></tr>
+            <tr><td style="padding:4px;">goli renew nad</td><td style="text-align:right;color:var(--red);font-weight:700;">0.53x</td><td style="text-align:right;">$200</td></tr>
+            <tr><td style="padding:4px;">weight loss (×2)</td><td style="text-align:right;color:var(--red);font-weight:700;">0.90x</td><td style="text-align:right;">$185</td></tr>
+            <tr><td style="padding:4px;">apple cider gummies</td><td style="text-align:right;color:var(--red);font-weight:700;">0.94x</td><td style="text-align:right;">$143</td></tr>
+            <tr><td style="padding:4px;">b12 vitamins</td><td style="text-align:right;color:var(--red);font-weight:700;">0.66x</td><td style="text-align:right;">$114</td></tr>
+            <tr style="font-weight:700;border-top:1px solid var(--border);"><td style="padding:4px;">Total (14 terms)</td><td style="text-align:right;color:var(--red);">avg 0.64x</td><td style="text-align:right;">$2,781</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid var(--green);">
+      <div class="card-title" style="color:var(--green);">Q2 — Add to Main Campaigns for More Revenue</div>
+      <div class="kpi-value" style="font-size:36px;color:var(--green);">15</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">High-value search terms currently in auto/broad<br>that should move to manual campaigns</div>
+      <div style="background:var(--green-light);border-radius:8px;padding:12px;margin-top:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--green);">$212K+ combined sales potential</div>
+        <div style="font-size:12px;color:#065F46;margin-top:4px;">These terms have 3.5–7.5x ROAS and high order volume but are being served via BROAD/AUTO. Adding as EXACT/PHRASE manual campaigns with dedicated budgets will capture more impression share and reduce CPC waste.</div>
+      </div>
+      <div style="margin-top:10px;">
+        <table style="width:100%;font-size:11px;border-collapse:collapse;">
+          <thead><tr><th style="text-align:left;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">Search Term</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">ROAS</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">L30 Sales</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:4px;">goli gummies</td><td style="text-align:right;color:var(--green);font-weight:700;">6.01x</td><td style="text-align:right;">$76,664</td></tr>
+            <tr><td style="padding:4px;">goli gummies 3 pack bundle</td><td style="text-align:right;color:var(--green);font-weight:700;">7.55x</td><td style="text-align:right;">$42,125</td></tr>
+            <tr><td style="padding:4px;">goli (broad/auto)</td><td style="text-align:right;color:var(--green);font-weight:700;">5.85x</td><td style="text-align:right;">$36,225</td></tr>
+            <tr><td style="padding:4px;">goli ashwagandha gummies</td><td style="text-align:right;color:var(--green);font-weight:700;">4.85x</td><td style="text-align:right;">$19,934</td></tr>
+            <tr><td style="padding:4px;">goli pre post probiotics</td><td style="text-align:right;color:var(--green);font-weight:700;">4.14x</td><td style="text-align:right;">$17,469</td></tr>
+            <tr><td style="padding:4px;">goli beets gummies</td><td style="text-align:right;color:var(--green);font-weight:700;">5.68x</td><td style="text-align:right;">$9,943</td></tr>
+            <tr><td style="padding:4px;">goli apple cider vinegar</td><td style="text-align:right;color:var(--green);font-weight:700;">4.72x</td><td style="text-align:right;">$9,887</td></tr>
+            <tr><td style="padding:4px;">goli magnesium glycinate</td><td style="text-align:right;color:var(--green);font-weight:700;">3.75x</td><td style="text-align:right;">$7,189</td></tr>
+            <tr><td style="padding:4px;">goli probiotic &amp; prebiotic</td><td style="text-align:right;color:var(--green);font-weight:700;">6.18x</td><td style="text-align:right;">$3,486</td></tr>
+            <tr><td style="padding:4px;">goli melatonin gummies</td><td style="text-align:right;color:var(--green);font-weight:700;">5.45x</td><td style="text-align:right;">$2,709</td></tr>
+            <tr style="font-weight:700;border-top:1px solid var(--border);"><td style="padding:4px;">Top 10 total</td><td style="text-align:right;color:var(--green);">5.2x avg</td><td style="text-align:right;">$225,631</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid var(--amber);">
+      <div class="card-title" style="color:var(--amber);">Q3 — Bleeders to Negative + Good ROAS Special Campaigns</div>
+      <div class="kpi-value" style="font-size:36px;color:var(--amber);">51</div>
+      <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">Total bleeders (ROAS &lt;1.5x, spend &gt;$20) to add<br>as negatives + 25 gems for dedicated campaigns</div>
+      <div style="background:var(--amber-light);border-radius:8px;padding:12px;margin-top:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--amber);">$7,153 recoverable spend from 51 bleeders</div>
+        <div style="font-size:12px;color:#92400E;margin-top:4px;">Adding 30 terms as negatives saves ~$5,927/month. Pausing remaining 21 mid-tier terms recovers another ~$1,226. Redeploy this budget to the 25 hidden gem terms (avg 15x ROAS).</div>
+      </div>
+      <div style="margin-top:10px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);margin-bottom:6px;">Top Negatives to Block</div>
+        <table style="width:100%;font-size:11px;border-collapse:collapse;">
+          <thead><tr><th style="text-align:left;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">Term</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">ROAS</th><th style="text-align:right;padding:5px 4px;color:var(--text-muted);font-weight:700;border-bottom:1px solid var(--border);">Waste</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:4px;">weight loss</td><td style="text-align:right;color:var(--red);font-weight:700;">0.39x</td><td style="text-align:right;">$953</td></tr>
+            <tr><td style="padding:4px;">red goli</td><td style="text-align:right;color:var(--red);font-weight:700;">1.14x</td><td style="text-align:right;">$695</td></tr>
+            <tr><td style="padding:4px;">vitamins (generic)</td><td style="text-align:right;color:var(--red);font-weight:700;">0.90x</td><td style="text-align:right;">$350</td></tr>
+            <tr><td style="padding:4px;">super beets heart chews</td><td style="text-align:right;color:var(--red);font-weight:700;">0.56x</td><td style="text-align:right;">$295</td></tr>
+            <tr><td style="padding:4px;">goli renew nad</td><td style="text-align:right;color:var(--red);font-weight:700;">0.53x</td><td style="text-align:right;">$200</td></tr>
+            <tr><td style="padding:4px;">goli multivitamin women</td><td style="text-align:right;color:var(--amber);font-weight:700;">1.16x</td><td style="text-align:right;">$269</td></tr>
+            <tr><td style="padding:4px;">natures bounty anxiety...</td><td style="text-align:right;color:var(--red);font-weight:700;">0.96x</td><td style="text-align:right;">$111</td></tr>
+            <tr><td style="padding:4px;">acv gummies</td><td style="text-align:right;color:var(--red);font-weight:700;">1.02x</td><td style="text-align:right;">$108</td></tr>
+            <tr><td style="padding:4px;">b12 vitamins</td><td style="text-align:right;color:var(--red);font-weight:700;">0.66x</td><td style="text-align:right;">$114</td></tr>
+            <tr><td style="padding:4px;">vitamin d</td><td style="text-align:right;color:var(--red);font-weight:700;">1.01x</td><td style="text-align:right;">$71</td></tr>
+            <tr style="font-weight:700;border-top:1px solid var(--border);"><td style="padding:4px;">All 51 bleeders</td><td style="text-align:right;color:var(--red);">avg 1.1x</td><td style="text-align:right;">$7,153</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SEGMENT A: SCALE CAMPAIGNS -->
+  <div class="section-header">
+    <div class="section-label">Segment A — Hidden Gems</div>
+    <div class="section-title">Special Scale Campaigns — High ROAS Terms (≥ 4x) to Build Dedicated Campaigns</div>
+    <div class="section-desc">25 terms identified with exceptionally high ROAS and low current spend — move to manual EXACT campaigns with dedicated budgets</div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title" style="color:var(--green);">🚀 Scale These Terms: Dedicated Manual Campaign Candidates (ROAS ≥ 4x, Orders ≥ 10)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Search Term</th>
+            <th>Current Campaign</th>
+            <th>Match</th>
+            <th>ROAS</th>
+            <th>ACOS</th>
+            <th>L30 Sales</th>
+            <th>Spend</th>
+            <th>Orders</th>
+            <th>Recommended Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--text-muted);font-size:12px;">1</td><td class="campaign-name">goli trio<small>Bundle brand term, ultra-high intent</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">13.8x</span></td><td class="acos-cell acos-ok">7.2%</td><td>$1,506</td><td>$109</td><td>43</td><td><span class="pill pill-scale">New EXACT Campaign $200/day</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">2</td><td class="campaign-name">goli extra strength sleep<small>High CVR sleep product</small></td><td style="font-size:11px;color:var(--text-muted);">Sleep KWE Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">8.78x</span></td><td class="acos-cell acos-ok">11.4%</td><td>$1,471</td><td>$168</td><td>85</td><td><span class="pill pill-scale">Increase Budget +40%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">3</td><td class="campaign-name">goli sleep gummies extra strength<small>Long-tail, high CVR</small></td><td style="font-size:11px;color:var(--text-muted);">Sleep KWE Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">8.41x</span></td><td class="acos-cell acos-ok">11.9%</td><td>$1,311</td><td>$156</td><td>62</td><td><span class="pill pill-scale">Increase Budget +40%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">4</td><td class="campaign-name">goli zero sugar 3 pack<small>Zero sugar variant bundle term</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">9.53x</span></td><td class="acos-cell acos-ok">10.5%</td><td>$1,059</td><td>$111</td><td>28</td><td><span class="pill pill-scale">New EXACT Campaign $100/day</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">5</td><td class="campaign-name">goli apple cider vinegar zero sugar<small>Zero sugar ACV — premium SKU</small></td><td style="font-size:11px;color:var(--text-muted);">ACV KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">8.77x</span></td><td class="acos-cell acos-ok">11.4%</td><td>$1,018</td><td>$116</td><td>46</td><td><span class="pill pill-scale">Add EXACT, Bid Up +25%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">6</td><td class="campaign-name">goli magnesium<small>Magnesium brand search</small></td><td style="font-size:11px;color:var(--text-muted);">Magnesium KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">6.61x</span></td><td class="acos-cell acos-ok">15.1%</td><td>$1,278</td><td>$194</td><td>65</td><td><span class="pill pill-scale">Add EXACT Match, Scale</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">7</td><td class="campaign-name">goli beets<small>High ROAS short brand term</small></td><td style="font-size:11px;color:var(--text-muted);">Beet Root KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">7.93x</span></td><td class="acos-cell acos-ok">12.6%</td><td>$1,179</td><td>$149</td><td>70</td><td><span class="pill pill-scale">Add EXACT, Raise Bid</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">8</td><td class="campaign-name">goli 3 pack<small>Bundle intent, clean ROAS</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">6.33x</span></td><td class="acos-cell acos-ok">15.8%</td><td>$1,367</td><td>$216</td><td>38</td><td><span class="pill pill-scale">New EXACT Campaign $150/day</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">9</td><td class="campaign-name">goli probiotic &amp; prebiotic gummies<small>Full brand+product match</small></td><td style="font-size:11px;color:var(--text-muted);">Biotics KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">6.18x</span></td><td class="acos-cell acos-ok">16.2%</td><td>$3,486</td><td>$564</td><td>169</td><td><span class="pill pill-scale">Increase Budget +30%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">10</td><td class="campaign-name">goli beets gummies<small>Full brand product term</small></td><td style="font-size:11px;color:var(--text-muted);">Beet Root KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">5.68x</span></td><td class="acos-cell acos-ok">17.6%</td><td>$9,943</td><td>$1,750</td><td>572</td><td><span class="pill pill-scale">Increase Budget +20%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">11</td><td class="campaign-name">goli gummies 3 pack bundle<small>Top revenue term in BROAD — needs EXACT</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">7.55x</span></td><td class="acos-cell acos-ok">13.2%</td><td>$42,125</td><td>$5,580</td><td>1,150</td><td><span class="pill pill-scale">Add EXACT to Bundle KWE NOW</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">12</td><td class="campaign-name">goli melatonin gummies<small>Sleep keyword, excellent CVR</small></td><td style="font-size:11px;color:var(--text-muted);">Sleep KWE Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">5.45x</span></td><td class="acos-cell acos-ok">18.4%</td><td>$2,709</td><td>$497</td><td>158</td><td><span class="pill pill-scale">Increase Budget +25%</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">13</td><td class="campaign-name">goli bundle<small>Bundle brand, low spend vs potential</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">5.77x</span></td><td class="acos-cell acos-ok">17.3%</td><td>$991</td><td>$172</td><td>30</td><td><span class="pill pill-scale">New EXACT Campaign $100/day</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">14</td><td class="campaign-name">goli nutrition 3 pack<small>High-intent bundle term</small></td><td style="font-size:11px;color:var(--text-muted);">Bundle KWB Broad</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">14.1x</span></td><td class="acos-cell acos-ok">7.1%</td><td>$576</td><td>$41</td><td>15</td><td><span class="pill pill-scale">New EXACT Campaign $100/day</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:12px;">15</td><td class="campaign-name">goli beets cardio gummies<small>Specific product term, clean ROAS</small></td><td style="font-size:11px;color:var(--text-muted);">Beet Root KWP Phrase</td><td><span class="type-badge type-sp">PHRASE</span></td><td><span style="color:var(--green);font-weight:700;font-size:14px;">15.6x</span></td><td class="acos-cell acos-ok">6.4%</td><td>$612</td><td>$39</td><td>24</td><td><span class="pill pill-scale">New EXACT Campaign $100/day</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SEGMENT B: ADD TO MANUAL -->
+  <div class="section-header">
+    <div class="section-label">Segment B — Revenue Unlock</div>
+    <div class="section-title">Add to Main Campaigns — Terms Currently Under-Served</div>
+    <div class="section-desc">High-revenue search terms running in BROAD or AUTO that need dedicated EXACT/PHRASE manual targeting with higher bids</div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title" style="color:var(--accent);">📥 Add These to Manual EXACT Campaigns — $225K+ Combined L30 Revenue Potential</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Search Term</th>
+            <th>Current Match</th>
+            <th>Portfolio</th>
+            <th>ROAS</th>
+            <th>L30 Sales</th>
+            <th>L30 Spend</th>
+            <th>Orders</th>
+            <th>ACOS</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="campaign-name">goli gummies<small>Top volume branded term</small></td><td><span class="type-badge type-sp">BROAD</span></td><td style="font-size:11px;">Bundle KWB</td><td><span style="color:var(--green);font-weight:700;">6.01x</span></td><td style="font-weight:700;">$76,664</td><td>$12,763</td><td>2,136</td><td class="acos-ok acos-cell">16.7%</td><td><span class="pill pill-scale">Add EXACT to Bundle KWE</span></td></tr>
+          <tr><td class="campaign-name">goli gummies 3 pack bundle<small>Bundle specific, very high ROAS</small></td><td><span class="type-badge type-sp">BROAD</span></td><td style="font-size:11px;">Bundle KWB</td><td><span style="color:var(--green);font-weight:700;">7.55x</span></td><td style="font-weight:700;">$42,125</td><td>$5,580</td><td>1,150</td><td class="acos-ok acos-cell">13.2%</td><td><span class="pill pill-scale">New EXACT — Priority 1</span></td></tr>
+          <tr><td class="campaign-name">goli<small>Branded 1-word, high volume</small></td><td><span class="type-badge type-sp">BROAD</span></td><td style="font-size:11px;">Bundle KWB</td><td><span style="color:var(--green);font-weight:700;">5.85x</span></td><td style="font-weight:700;">$36,225</td><td>$6,195</td><td>1,008</td><td class="acos-ok acos-cell">17.1%</td><td><span class="pill pill-scale">Raise Bid in EXACT</span></td></tr>
+          <tr><td class="campaign-name">goli ashwagandha gummies<small>Core product branded term</small></td><td><span class="type-badge type-sp">EXACT</span></td><td style="font-size:11px;">Ashwagandha KWE</td><td><span style="color:var(--green);font-weight:700;">4.85x</span></td><td style="font-weight:700;">$19,934</td><td>$4,107</td><td>1,140</td><td class="acos-mid acos-cell">20.6%</td><td><span class="pill pill-scale">Increase Budget +30%</span></td></tr>
+          <tr><td class="campaign-name">goli pre post probiotics 3 in 1<small>Long-tail, high CVR 45%</small></td><td><span class="type-badge type-sp">PHRASE</span></td><td style="font-size:11px;">Biotics KWP</td><td><span style="color:var(--green);font-weight:700;">4.14x</span></td><td style="font-weight:700;">$17,469</td><td>$4,218</td><td>933</td><td class="acos-mid acos-cell">24.1%</td><td><span class="pill pill-scale">Add EXACT, Budget +20%</span></td></tr>
+          <tr><td class="campaign-name">goli beets gummies</td><td><span class="type-badge type-sp">PHRASE</span></td><td style="font-size:11px;">Beet Root KWP</td><td><span style="color:var(--green);font-weight:700;">5.68x</span></td><td>$9,943</td><td>$1,750</td><td>572</td><td class="acos-ok acos-cell">17.6%</td><td><span class="pill pill-scale">Add EXACT Match</span></td></tr>
+          <tr><td class="campaign-name">goli apple cider vinegar gummies</td><td><span class="type-badge type-sp">EXACT</span></td><td style="font-size:11px;">ACV KWE</td><td><span style="color:var(--green);font-weight:700;">4.72x</span></td><td>$9,887</td><td>$2,093</td><td>458</td><td class="acos-mid acos-cell">21.2%</td><td><span class="pill pill-scale">Increase Budget +25%</span></td></tr>
+          <tr><td class="campaign-name">goli magnesium glycinate gummies<small>Specific SKU term</small></td><td><span class="type-badge type-sp">PHRASE</span></td><td style="font-size:11px;">Magnesium KWP</td><td><span style="color:var(--green);font-weight:700;">3.75x</span></td><td>$7,189</td><td>$1,917</td><td>338</td><td class="acos-mid acos-cell">26.7%</td><td><span class="pill pill-scale">Add EXACT Match</span></td></tr>
+          <tr><td class="campaign-name">goli probiotic &amp; prebiotic gummies</td><td><span class="type-badge type-sp">PHRASE</span></td><td style="font-size:11px;">Biotics KWP</td><td><span style="color:var(--green);font-weight:700;">6.18x</span></td><td>$3,486</td><td>$564</td><td>169</td><td class="acos-ok acos-cell">16.2%</td><td><span class="pill pill-scale">Add EXACT, Raise Bid</span></td></tr>
+          <tr><td class="campaign-name">goli ashwagandha<small>Short branded — convert from phrase</small></td><td><span class="type-badge type-sp">PHRASE</span></td><td style="font-size:11px;">Ashwagandha KWP</td><td><span style="color:var(--green);font-weight:700;">4.70x</span></td><td>$3,630</td><td>$773</td><td>208</td><td class="acos-mid acos-cell">21.3%</td><td><span class="pill pill-scale">Add EXACT Match</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SEGMENT C: NEGATIVES -->
+  <div class="section-header">
+    <div class="section-label">Segment C — Waste Elimination</div>
+    <div class="section-title">Negative Keyword List — Block These Terms to Recover $7,153/month</div>
+    <div class="section-desc">51 confirmed bleeders. Top 20 shown — all have ROAS &lt; 1.5x and spend &gt; $20. Add as campaign-level negatives immediately.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--red);">🚫 Negative Keyword Blocklist — Add Campaign-Level Negatives (ROAS &lt; 1.5x)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Search Term</th>
+            <th>Campaign</th>
+            <th>Type</th>
+            <th>ROAS</th>
+            <th>ACOS</th>
+            <th>Spend</th>
+            <th>Sales</th>
+            <th>Negative Type</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--text-muted);font-size:11px;">1</td><td class="campaign-name">weight loss<small>Generic health claim — wrong intent</small></td><td style="font-size:11px;">Catch All Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">0.39x</span></td><td class="acos-high acos-cell">254%</td><td>$953</td><td>$376</td><td><span class="pill pill-pause">EXACT + PHRASE</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">2</td><td class="campaign-name">red goli<small>Misspelled — low-quality traffic</small></td><td style="font-size:11px;">Bundle KWB</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--red);font-weight:700;">1.14x</span></td><td class="acos-high acos-cell">88%</td><td>$695</td><td>$793</td><td><span class="pill pill-pause">EXACT</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">3</td><td class="campaign-name">vitamins<small>Too generic — Goli not primary result</small></td><td style="font-size:11px;">Bundle Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">0.90x</span></td><td class="acos-high acos-cell">112%</td><td>$350</td><td>$314</td><td><span class="pill pill-pause">EXACT + PHRASE</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">4</td><td class="campaign-name">super beets heart chews<small>Competitor brand — block everywhere</small></td><td style="font-size:11px;">Beet Root Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--red);font-weight:700;">0.56x</span></td><td class="acos-high acos-cell">179%</td><td>$295</td><td>$165</td><td><span class="pill pill-pause">PHRASE — All Beet Campaigns</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">5</td><td class="campaign-name">goli renew nad<small>Discontinued/niche product</small></td><td style="font-size:11px;">Bundle KWB</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--red);font-weight:700;">0.53x</span></td><td class="acos-high acos-cell">190%</td><td>$200</td><td>$106</td><td><span class="pill pill-pause">EXACT</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">6</td><td class="campaign-name">goli multivitamin women<small>Product not in current VC catalog</small></td><td style="font-size:11px;">ACV KWR</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">1.16x</span></td><td class="acos-high acos-cell">86%</td><td>$269</td><td>$312</td><td><span class="pill pill-pause">PHRASE</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">7</td><td class="campaign-name">ashwagandha gummy<small>Generic — weaker than "gummies"</small></td><td style="font-size:11px;">Ashwagandha Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--amber);font-weight:700;">1.32x</span></td><td class="acos-high acos-cell">76%</td><td>$221</td><td>$291</td><td><span class="pill pill-watch">EXACT — reduce bid 30%</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">8</td><td class="campaign-name">weight loss (2nd instance)</td><td style="font-size:11px;">Catch All Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">0.90x</span></td><td class="acos-high acos-cell">112%</td><td>$185</td><td>$166</td><td><span class="pill pill-pause">EXACT + PHRASE</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">9</td><td class="campaign-name">nutricost ashwagandha ksm-66<small>Competitor brand</small></td><td style="font-size:11px;">Ashwagandha KWC</td><td><span class="type-badge type-sp">COMP</span></td><td><span style="color:var(--red);font-weight:700;">1.23x</span></td><td class="acos-high acos-cell">81%</td><td>$145</td><td>$178</td><td><span class="pill pill-pause">PHRASE — all campaigns</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">10</td><td class="campaign-name">apple cider gummies<small>Generic ACV — poor CVR</small></td><td style="font-size:11px;">ACV KWB</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--red);font-weight:700;">0.94x</span></td><td class="acos-high acos-cell">106%</td><td>$143</td><td>$135</td><td><span class="pill pill-pause">EXACT</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">11</td><td class="campaign-name">apple cider vinegar supplements<small>Too generic — low purchase intent</small></td><td style="font-size:11px;">ACV Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--amber);font-weight:700;">1.38x</span></td><td class="acos-high acos-cell">72%</td><td>$140</td><td>$193</td><td><span class="pill pill-watch">Reduce bid 25%</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">12</td><td class="campaign-name">goli supergreens gummies<small>Low-demand SKU confusing traffic</small></td><td style="font-size:11px;">Bundle KWB</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--red);font-weight:700;">1.23x</span></td><td class="acos-high acos-cell">82%</td><td>$131</td><td>$160</td><td><span class="pill pill-pause">EXACT</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">13</td><td class="campaign-name">goli womens multivitamin<small>Discontinued SKU</small></td><td style="font-size:11px;">Bundle KWB</td><td><span class="type-badge type-sp">BROAD</span></td><td><span style="color:var(--red);font-weight:700;">1.13x</span></td><td class="acos-high acos-cell">88%</td><td>$127</td><td>$144</td><td><span class="pill pill-pause">PHRASE</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">14</td><td class="campaign-name">relax gummies<small>Wrong product category intent</small></td><td style="font-size:11px;">Catch All Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">1.26x</span></td><td class="acos-high acos-cell">80%</td><td>$115</td><td>$144</td><td><span class="pill pill-pause">EXACT + PHRASE</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">15</td><td class="campaign-name">b12 vitamins<small>Wrong product association</small></td><td style="font-size:11px;">Beet Root Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--red);font-weight:700;">0.66x</span></td><td class="acos-high acos-cell">152%</td><td>$114</td><td>$75</td><td><span class="pill pill-pause">EXACT — all campaigns</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">16</td><td class="campaign-name">natures bounty anxiety stress relief<small>Competitor — irrelevant</small></td><td style="font-size:11px;">Ashwagandha KWC</td><td><span class="type-badge type-sp">COMP</span></td><td><span style="color:var(--red);font-weight:700;">0.96x</span></td><td class="acos-high acos-cell">104%</td><td>$111</td><td>$107</td><td><span class="pill pill-pause">PHRASE — all campaigns</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">17</td><td class="campaign-name">acv gummies<small>Generic, too broad for VC</small></td><td style="font-size:11px;">ACV Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--red);font-weight:700;">1.02x</span></td><td class="acos-high acos-cell">98%</td><td>$108</td><td>$110</td><td><span class="pill pill-watch">Reduce bid 40%</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">18</td><td class="campaign-name">vitamin d<small>Wrong product entirely</small></td><td style="font-size:11px;">Bundle Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">1.01x</span></td><td class="acos-high acos-cell">99%</td><td>$71</td><td>$72</td><td><span class="pill pill-pause">EXACT + PHRASE</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">19</td><td class="campaign-name">beetroot gummies<small>Generic beet term, poor CVR</small></td><td style="font-size:11px;">Beet Root Exact</td><td><span class="type-badge type-sp">EXACT</span></td><td><span style="color:var(--red);font-weight:700;">1.06x</span></td><td class="acos-high acos-cell">94%</td><td>$70</td><td>$75</td><td><span class="pill pill-watch">Reduce bid 30%</span></td><td><span class="poa-priority priority-2">P2</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">20</td><td class="campaign-name">pre post probiotics<small>Generic category — low branded CVR</small></td><td style="font-size:11px;">Biotics Auto</td><td><span class="type-badge type-sp">AUTO</span></td><td><span style="color:var(--red);font-weight:700;">0.98x</span></td><td class="acos-high acos-cell">102%</td><td>$64</td><td>$63</td><td><span class="pill pill-pause">EXACT</span></td><td><span class="poa-priority priority-1">P1</span></td></tr>
+          <tr style="background:var(--red-light);font-weight:700;">
+            <td colspan="6" style="padding:10px 12px;color:var(--red);">TOTAL (51 bleeders) — Recoverable budget if negated</td>
+            <td style="padding:10px 12px;color:var(--red);">$7,153</td>
+            <td style="padding:10px 12px;color:var(--red);">$5,264</td>
+            <td colspan="2" style="padding:10px 12px;color:var(--red);">Add 30 as P1 negatives this week</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /tab4 -->
+
+<!-- ═══════════════════════════════════════════════════ TAB 5 ═══ -->
+<div id="tab5" class="tab-content">
+
+  <div class="section-header">
+    <div class="section-label">Section 5 — ASIN Intelligence · Revenue Opportunity</div>
+    <div class="section-title">ASIN Opportunity Radar: Scale, B2B &amp; Additional Cap Recommendations</div>
+    <div class="section-desc">Two-screen data synthesized — unadvertised/underinvested ASINs with strong ROAS potential + top 20 B2B scale candidates above 3x ROAS</div>
+  </div>
+
+  <!-- ALERT BANNER -->
+  <div class="alert alert-info" style="margin-bottom:24px;">
+    <div class="alert-icon">💡</div>
+    <div class="alert-text"><strong>Strategic Insight:</strong> Screen 1 reveals 5 underinvested ASINs delivering 10–200x ROAS on minimal spend — these are effectively free money sitting unscaled. Screen 2 shows 20 high-volume ASINs all above 3x ROAS and $3.7K+ in L30 sales — ideal candidates for Amazon B2B campaigns and additional budget cap increases to capture more share of wallet.</div>
+  </div>
+
+  <!-- ─── SCREEN 1: TOP 5 UNDERINVESTED ASINs ─── -->
+  <div class="section-header">
+    <div class="section-label">Screen 1 — Underinvested High-ROAS ASINs</div>
+    <div class="section-title">Top 5 Hidden Revenue ASINs — Massive ROAS on Minimal Spend</div>
+    <div class="section-desc">These ASINs are converting at extraordinary ROAS with tiny budgets. Total combined: $165 spend → $4,279 sales. Each needs its own dedicated PT campaign immediately.</div>
+  </div>
+
+  <!-- TOP 5 HIGHLIGHT CARDS -->
+  <div class="grid grid-5" style="margin-bottom:24px;grid-template-columns:repeat(5,1fr);">
+
+    <div class="card" style="border-top:4px solid #0E9F6E;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:10px;font-size:22px;opacity:.15;">🥇</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Rank #1</div>
+      <div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:12px;word-break:break-all;">B0F332YNG8</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ROAS</div><div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:24px;font-weight:700;color:#0E9F6E;">201x</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ACOS</div><div style="font-size:18px;font-weight:700;color:#0E9F6E;">0.50%</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Spend</div><div style="font-size:15px;font-weight:700;">$0.46</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Sales</div><div style="font-size:15px;font-weight:700;">$92.62</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Imps: 2,925 · Clicks: 1 · CTR: 0.03%</div>
+      <div style="background:var(--green-light);border-radius:8px;padding:10px;">
+        <div style="font-size:11px;font-weight:700;color:#065F46;">Action Required</div>
+        <div style="font-size:11px;color:#065F46;margin-top:3px;">Launch dedicated SP PT campaign · $50/day · EXACT ASIN targeting · This 201x ROAS is the highest in the account</div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+        <span class="pill pill-scale">Launch PT Campaign</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #0E9F6E;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:10px;font-size:22px;opacity:.15;">🥈</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Rank #2</div>
+      <div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:12px;word-break:break-all;">B0F284XV4Z</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ROAS</div><div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:24px;font-weight:700;color:#0E9F6E;">63.6x</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ACOS</div><div style="font-size:18px;font-weight:700;color:#0E9F6E;">1.57%</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Spend</div><div style="font-size:15px;font-weight:700;">$3.95</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Sales</div><div style="font-size:15px;font-weight:700;">$251.08</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Imps: 2,866 · Clicks: 20 · CTR: 0.70%</div>
+      <div style="background:var(--green-light);border-radius:8px;padding:10px;">
+        <div style="font-size:11px;font-weight:700;color:#065F46;">Action Required</div>
+        <div style="font-size:11px;color:#065F46;margin-top:3px;">Scale to $100/day SP PT + SB Headline. Already shown in Screen 2 with $26.5K sales — prove this ASIN can carry more budget</div>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="pill pill-scale">Scale PT + Add SB</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #1A56DB;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:10px;font-size:22px;opacity:.15;">🥉</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Rank #3</div>
+      <div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:12px;word-break:break-all;">B0F8RDYK3P</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ROAS</div><div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:24px;font-weight:700;color:#1A56DB;">37.4x</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ACOS</div><div style="font-size:18px;font-weight:700;color:#0E9F6E;">2.67%</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Spend</div><div style="font-size:15px;font-weight:700;">$37.46</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Sales</div><div style="font-size:15px;font-weight:700;">$1,401.25</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Imps: 6,034 · Clicks: 135 · CTR: 2.24%</div>
+      <div style="background:var(--accent-light);border-radius:8px;padding:10px;">
+        <div style="font-size:11px;font-weight:700;color:#1E40AF;">Action Required</div>
+        <div style="font-size:11px;color:#1E40AF;margin-top:3px;">Highest CTR of the 5 ASINs (2.24%) + 37x ROAS. This ASIN is already proven at $52K in Screen 2. Increase budget cap by 3× immediately</div>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="pill pill-scale">3× Budget Cap Now</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #7C3AED;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:10px;font-size:22px;opacity:.15;">4️⃣</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Rank #4</div>
+      <div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:12px;word-break:break-all;">B0GS2Q45B2</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ROAS</div><div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:24px;font-weight:700;color:#7C3AED;">31.9x</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ACOS</div><div style="font-size:18px;font-weight:700;color:#0E9F6E;">3.13%</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Spend</div><div style="font-size:15px;font-weight:700;">$4.90</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Sales</div><div style="font-size:15px;font-weight:700;">$156.46</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Imps: 198,576 · Clicks: 16 · CTR: 0.01%</div>
+      <div style="background:var(--purple-light);border-radius:8px;padding:10px;">
+        <div style="font-size:11px;font-weight:700;color:#4C1D95;">Action Required</div>
+        <div style="font-size:11px;color:#4C1D95;margin-top:3px;">Very low CTR (0.01%) but strong ROAS — creative/image issue. Refresh main image, add A+ content, then scale. Massive impression base already there</div>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="pill pill-watch">Fix Creative → Scale</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #D97706;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:10px;font-size:22px;opacity:.15;">5️⃣</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Rank #5</div>
+      <div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:12px;word-break:break-all;">B0GS2Q45B2</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ROAS</div><div style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:24px;font-weight:700;color:#D97706;">28.1x</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">ACOS</div><div style="font-size:18px;font-weight:700;color:#0E9F6E;">3.56%</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Spend</div><div style="font-size:15px;font-weight:700;">$38.49</div></div>
+        <div><div style="font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;">Sales</div><div style="font-size:15px;font-weight:700;">$1,081.79</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Imps: 38,109 · Clicks: 129 · CTR: 0.34%</div>
+      <div style="background:var(--amber-light);border-radius:8px;padding:10px;">
+        <div style="font-size:11px;font-weight:700;color:#92400E;">Action Required</div>
+        <div style="font-size:11px;color:#92400E;margin-top:3px;">Second entry of same ASIN — confirms high conversion consistency. Consolidate into single campaign, double budget cap and add SB video</div>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="pill pill-scale">Consolidate + Scale</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCREEN 1 FULL TABLE -->
+  <div class="card" style="margin-bottom:28px;">
+    <div class="card-title">📊 Screen 1 — All ASINs: Calculated Spend, Sales &amp; ROAS (Top 5 Highlighted)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Advertised ASIN</th>
+            <th>Impressions</th>
+            <th>Clicks</th>
+            <th>CTR</th>
+            <th>CPC</th>
+            <th>Spend</th>
+            <th>30D Sales</th>
+            <th>ACOS</th>
+            <th>ROAS</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- TOP 5 highlighted rows -->
+          <tr style="background:#F0FDF4;">
+            <td style="font-weight:700;color:var(--green);">🏆1</td>
+            <td style="font-weight:700;color:var(--text-primary);">B0F332YNG8</td>
+            <td>2,925</td><td>1</td><td>0.03%</td><td>$0.46</td>
+            <td style="font-weight:700;">$0.46</td>
+            <td style="font-weight:700;color:var(--green);">$92.62</td>
+            <td class="acos-ok acos-cell">0.50%</td>
+            <td><span style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:15px;font-weight:700;color:#0E9F6E;">201.35x</span></td>
+            <td><span class="pill pill-scale">Launch PT Now</span></td>
+          </tr>
+          <tr style="background:#F0FDF4;">
+            <td style="font-weight:700;color:var(--green);">🏆2</td>
+            <td style="font-weight:700;color:var(--text-primary);">B0F284XV4Z</td>
+            <td>2,866</td><td>20</td><td>0.70%</td><td>$0.20</td>
+            <td style="font-weight:700;">$3.95</td>
+            <td style="font-weight:700;color:var(--green);">$251.08</td>
+            <td class="acos-ok acos-cell">1.57%</td>
+            <td><span style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:15px;font-weight:700;color:#0E9F6E;">63.56x</span></td>
+            <td><span class="pill pill-scale">Scale 5× Budget</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">🏆3</td>
+            <td style="font-weight:700;color:var(--text-primary);">B0F8RDYK3P</td>
+            <td>6,034</td><td>135</td><td>2.24%</td><td>$0.28</td>
+            <td style="font-weight:700;">$37.46</td>
+            <td style="font-weight:700;color:var(--green);">$1,401.25</td>
+            <td class="acos-ok acos-cell">2.67%</td>
+            <td><span style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:15px;font-weight:700;color:#1A56DB;">37.41x</span></td>
+            <td><span class="pill pill-scale">3× Budget Cap</span></td>
+          </tr>
+          <tr style="background:#F5F3FF;">
+            <td style="font-weight:700;color:var(--purple);">🏆4</td>
+            <td style="font-weight:700;color:var(--text-primary);">B0GS2Q45B2</td>
+            <td>198,576</td><td>16</td><td>0.01%</td><td>$0.31</td>
+            <td style="font-weight:700;">$4.90</td>
+            <td style="font-weight:700;color:var(--green);">$156.46</td>
+            <td class="acos-ok acos-cell">3.13%</td>
+            <td><span style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:15px;font-weight:700;color:#7C3AED;">31.93x</span></td>
+            <td><span class="pill pill-watch">Fix CTR → Scale</span></td>
+          </tr>
+          <tr style="background:#FFFBEB;">
+            <td style="font-weight:700;color:var(--amber);">🏆5</td>
+            <td style="font-weight:700;color:var(--text-primary);">B0GS2Q45B2</td>
+            <td>38,109</td><td>129</td><td>0.34%</td><td>$0.30</td>
+            <td style="font-weight:700;">$38.49</td>
+            <td style="font-weight:700;color:var(--green);">$1,081.79</td>
+            <td class="acos-ok acos-cell">3.56%</td>
+            <td><span style="font-family:&#39;Space Grotesk&#39;,sans-serif;font-size:15px;font-weight:700;color:#D97706;">28.11x</span></td>
+            <td><span class="pill pill-scale">Consolidate + Scale</span></td>
+          </tr>
+          <!-- Remaining rows -->
+          <tr><td style="color:var(--text-muted);font-size:11px;">6</td><td>B0BZ1KLMRS</td><td>40,403</td><td>142</td><td>0.35%</td><td>$1.17</td><td>$165.44</td><td>$1,755.15</td><td class="acos-ok acos-cell">9.42%</td><td style="font-weight:700;color:var(--green);">10.61x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">7</td><td>B0F285ZC8L</td><td>53,331</td><td>72</td><td>0.14%</td><td>$1.80</td><td>$129.28</td><td>$1,686.70</td><td class="acos-ok acos-cell">7.66%</td><td style="font-weight:700;color:var(--green);">13.05x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">8</td><td>B09GPW4D2B</td><td>6,291</td><td>97</td><td>1.54%</td><td>$0.61</td><td>$59.03</td><td>$608.41</td><td class="acos-ok acos-cell">9.70%</td><td style="font-weight:700;color:var(--green);">10.31x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">9</td><td>B0F284D5YV</td><td>45,754</td><td>22</td><td>0.05%</td><td>$2.47</td><td>$54.33</td><td>$562.33</td><td class="acos-ok acos-cell">9.66%</td><td style="font-weight:700;color:var(--green);">10.35x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">10</td><td>B0F3348S9N</td><td>11,774</td><td>29</td><td>0.25%</td><td>$0.55</td><td>$15.83</td><td>$466.26</td><td class="acos-ok acos-cell">3.40%</td><td style="font-weight:700;color:var(--green);">29.45x</td><td><span class="pill pill-scale">Scale Up</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">11</td><td>B094TDK36S</td><td>63,715</td><td>9</td><td>0.01%</td><td>$1.44</td><td>$12.97</td><td>$392.17</td><td class="acos-ok acos-cell">3.31%</td><td style="font-weight:700;color:var(--green);">30.24x</td><td><span class="pill pill-watch">Fix CTR First</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">12</td><td>B07SKCTNNS</td><td>139,786</td><td>32</td><td>0.02%</td><td>$0.61</td><td>$19.60</td><td>$278.34</td><td class="acos-ok acos-cell">7.04%</td><td style="font-weight:700;color:var(--green);">14.20x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">13</td><td>B0F8RDWJ97</td><td>4,659</td><td>39</td><td>0.84%</td><td>$0.23</td><td>$9.08</td><td>$197.62</td><td class="acos-ok acos-cell">4.59%</td><td style="font-weight:700;color:var(--green);">21.76x</td><td><span class="pill pill-scale">Scale Up</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">14</td><td>B0BYFLN1GQ</td><td>14,132</td><td>24</td><td>0.17%</td><td>$0.64</td><td>$15.45</td><td>$168.38</td><td class="acos-ok acos-cell">9.18%</td><td style="font-weight:700;color:var(--green);">10.90x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">15</td><td>B0BZ1CKHVL</td><td>1,302</td><td>20</td><td>1.54%</td><td>$0.67</td><td>$13.40</td><td>$164.83</td><td class="acos-ok acos-cell">8.13%</td><td style="font-weight:700;color:var(--green);">12.30x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">16</td><td>B0FHJH85NH</td><td>401</td><td>8</td><td>2.00%</td><td>$0.17</td><td>$1.36</td><td>$127.42</td><td class="acos-ok acos-cell">1.07%</td><td style="font-weight:700;color:var(--green);">93.69x</td><td><span class="pill pill-scale">Launch Campaign</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">17</td><td>B0F284SYSV</td><td>734</td><td>6</td><td>0.82%</td><td>$1.38</td><td>$8.29</td><td>$125.61</td><td class="acos-ok acos-cell">6.60%</td><td style="font-weight:700;color:var(--green);">15.15x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">18</td><td>B0F5X9JF2R</td><td>17,964</td><td>24</td><td>0.13%</td><td>$0.42</td><td>$10.17</td><td>$124.79</td><td class="acos-ok acos-cell">8.15%</td><td style="font-weight:700;color:var(--green);">12.27x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">19</td><td>B07R8GD47V</td><td>897</td><td>16</td><td>1.78%</td><td>$0.29</td><td>$4.64</td><td>$110.81</td><td class="acos-ok acos-cell">4.19%</td><td style="font-weight:700;color:var(--green);">23.88x</td><td><span class="pill pill-scale">Scale Up</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">20</td><td>B0BYFXRKNM</td><td>1,250</td><td>7</td><td>0.56%</td><td>$1.03</td><td>$7.18</td><td>$101.59</td><td class="acos-ok acos-cell">7.07%</td><td style="font-weight:700;color:var(--green);">14.15x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr><td style="color:var(--text-muted);font-size:11px;">21</td><td>B0BZ17M1ZZ</td><td>2,979</td><td>7</td><td>0.24%</td><td>$1.01</td><td>$7.07</td><td>$89.91</td><td class="acos-ok acos-cell">7.86%</td><td style="font-weight:700;color:var(--green);">12.72x</td><td><span class="pill pill-watch">Monitor</span></td></tr>
+          <tr style="background:var(--surface2);font-weight:700;">
+            <td colspan="6" style="padding:10px 12px;">Screen 1 Total</td>
+            <td style="padding:10px 12px;">$597.11</td>
+            <td style="padding:10px 12px;color:var(--green);">$9,663.20</td>
+            <td style="padding:10px 12px;" class="acos-ok acos-cell">6.18%</td>
+            <td style="padding:10px 12px;color:var(--green);">16.18x avg</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─── SCREEN 2: TOP 20 B2B SCALE ASINS ─── -->
+  <div class="section-header">
+    <div class="section-label">Screen 2 — B2B Campaign Targets</div>
+    <div class="section-title">Top 20 High-Volume ASINs (ROAS &gt; 3x) — Build B2B Campaigns + Increase Budget Cap</div>
+    <div class="section-desc">All 20 ASINs exceed 3x ROAS and $3.7K+ in L30 sales. Combined: $88K spend → $391K sales. Prime candidates for Amazon Business pricing, B2B campaigns and budget cap increases.</div>
+  </div>
+
+  <!-- B2B Summary Stats -->
+  <div class="grid grid-4" style="margin-bottom:20px;">
+    <div class="card kpi">
+      <div class="kpi-label">Combined L30 Sales</div>
+      <div class="kpi-value" style="color:var(--green);">$391K</div>
+      <div class="kpi-sub">Top 20 ASINs above 3x ROAS</div>
+      <div class="kpi-badge badge-green">Scale Opportunity</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">Combined L30 Spend</div>
+      <div class="kpi-value">$88K</div>
+      <div class="kpi-sub">Average blended ROAS 4.2x</div>
+      <div class="kpi-badge badge-blue">Well Under-invested</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">Highest Single ASIN</div>
+      <div class="kpi-value" style="color:var(--accent);">$192K</div>
+      <div class="kpi-sub">B0FNPW73LL · 5.14x ROAS</div>
+      <div class="kpi-badge badge-blue">B2B Priority #1</div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-label">Best ROAS in Top 20</div>
+      <div class="kpi-value" style="color:var(--green);">6.92x</div>
+      <div class="kpi-sub">B07SK8X1ZQ · $4K sales</div>
+      <div class="kpi-badge badge-green">New B2B Campaign</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-title" style="color:var(--accent);">🏢 Top 20 B2B Campaign Targets — All Above 3x ROAS (Sorted by Sales)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ASIN</th>
+            <th>Impressions</th>
+            <th>Clicks</th>
+            <th>CTR</th>
+            <th>CPC</th>
+            <th>Spend</th>
+            <th>L30 Sales</th>
+            <th>ACOS</th>
+            <th>ROAS</th>
+            <th>B2B Priority</th>
+            <th>Cap Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">1</td>
+            <td style="font-weight:700;">B0FNPW73LL</td>
+            <td>594,027</td><td>18,191</td><td>3.06%</td><td>$2.06</td>
+            <td style="font-weight:600;">$37,451</td>
+            <td style="font-weight:700;color:var(--green);font-size:14px;">$192,665</td>
+            <td class="acos-mid acos-cell">19.44%</td>
+            <td style="font-weight:700;color:var(--accent);">5.14x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+50% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">2</td>
+            <td style="font-weight:700;">B094T2BZCK</td>
+            <td>1,402,076</td><td>10,248</td><td>0.73%</td><td>$2.12</td>
+            <td style="font-weight:600;">$21,724</td>
+            <td style="font-weight:700;color:var(--green);font-size:14px;">$72,256</td>
+            <td class="acos-mid acos-cell">30.07%</td>
+            <td style="font-weight:700;color:var(--amber);">3.33x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+40% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">3</td>
+            <td style="font-weight:700;">B0F8RDYK3P</td>
+            <td>442,895</td><td>7,215</td><td>1.63%</td><td>$2.16</td>
+            <td style="font-weight:600;">$15,611</td>
+            <td style="font-weight:700;color:var(--green);font-size:14px;">$52,664</td>
+            <td class="acos-mid acos-cell">29.64%</td>
+            <td style="font-weight:700;color:var(--amber);">3.37x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+40% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">4</td>
+            <td>B0BYFLN1GQ</td>
+            <td>641,405</td><td>4,058</td><td>0.63%</td><td>$2.35</td>
+            <td style="font-weight:600;">$9,550</td>
+            <td style="font-weight:700;color:var(--green);">$33,005</td>
+            <td class="acos-mid acos-cell">28.94%</td>
+            <td style="font-weight:700;color:var(--amber);">3.46x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">5</td>
+            <td>B094T2BZCK</td>
+            <td>342,434</td><td>4,348</td><td>1.27%</td><td>$1.99</td>
+            <td style="font-weight:600;">$8,667</td>
+            <td style="font-weight:700;color:var(--green);">$28,725</td>
+            <td class="acos-mid acos-cell">30.17%</td>
+            <td style="font-weight:700;color:var(--amber);">3.31x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">6</td>
+            <td>B0F284XV4Z</td>
+            <td>281,333</td><td>3,020</td><td>1.07%</td><td>$2.10</td>
+            <td style="font-weight:600;">$6,343</td>
+            <td style="font-weight:700;color:var(--green);">$26,552</td>
+            <td class="acos-mid acos-cell">23.89%</td>
+            <td style="font-weight:700;color:var(--green);">4.19x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+50% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">7</td>
+            <td>B0F494ZMDJ</td>
+            <td>715,468</td><td>2,838</td><td>0.40%</td><td>$2.32</td>
+            <td style="font-weight:600;">$6,570</td>
+            <td style="font-weight:700;color:var(--green);">$22,894</td>
+            <td class="acos-mid acos-cell">28.70%</td>
+            <td style="font-weight:700;color:var(--amber);">3.48x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+25% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">8</td>
+            <td>B0F8RDYK3P</td>
+            <td>277,647</td><td>2,362</td><td>0.85%</td><td>$2.21</td>
+            <td style="font-weight:600;">$5,226</td>
+            <td style="font-weight:700;color:var(--green);">$20,845</td>
+            <td class="acos-mid acos-cell">25.07%</td>
+            <td style="font-weight:700;color:var(--green);">3.99x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">9</td>
+            <td>B07R8GD47V</td>
+            <td>117,845</td><td>2,258</td><td>1.92%</td><td>$2.52</td>
+            <td style="font-weight:600;">$5,694</td>
+            <td style="font-weight:700;color:var(--green);">$17,099</td>
+            <td class="acos-high acos-cell">33.30%</td>
+            <td style="font-weight:700;color:var(--amber);">3.00x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-watch">+15% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">10</td>
+            <td>B0BZ1CKHVL</td>
+            <td>108,502</td><td>1,873</td><td>1.73%</td><td>$2.00</td>
+            <td style="font-weight:600;">$3,750</td>
+            <td style="font-weight:700;color:var(--green);">$14,007</td>
+            <td class="acos-mid acos-cell">26.77%</td>
+            <td style="font-weight:700;color:var(--green);">3.74x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+25% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">11</td>
+            <td>B0C15P77JJ</td>
+            <td>166,921</td><td>1,711</td><td>1.03%</td><td>$1.36</td>
+            <td style="font-weight:600;">$2,333</td>
+            <td style="font-weight:700;color:var(--green);">$13,221</td>
+            <td class="acos-ok acos-cell">17.65%</td>
+            <td style="font-weight:700;color:var(--green);">5.67x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+60% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">12</td>
+            <td>B0C15P77JJ</td>
+            <td>178,804</td><td>2,380</td><td>1.33%</td><td>$1.78</td>
+            <td style="font-weight:600;">$4,229</td>
+            <td style="font-weight:700;color:var(--green);">$13,128</td>
+            <td class="acos-high acos-cell">32.21%</td>
+            <td style="font-weight:700;color:var(--amber);">3.10x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-watch">+15% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">13</td>
+            <td>B0F8RDWJ97</td>
+            <td>184,584</td><td>2,211</td><td>1.20%</td><td>$1.57</td>
+            <td style="font-weight:600;">$3,474</td>
+            <td style="font-weight:700;color:var(--green);">$13,055</td>
+            <td class="acos-mid acos-cell">26.61%</td>
+            <td style="font-weight:700;color:var(--green);">3.76x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+25% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">14</td>
+            <td>B0F8RDWJ97</td>
+            <td>192,587</td><td>2,117</td><td>1.10%</td><td>$1.46</td>
+            <td style="font-weight:600;">$3,086</td>
+            <td style="font-weight:700;color:var(--green);">$12,663</td>
+            <td class="acos-mid acos-cell">24.37%</td>
+            <td style="font-weight:700;color:var(--green);">4.10x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">15</td>
+            <td>B0F284XV4Z</td>
+            <td>215,957</td><td>1,254</td><td>0.58%</td><td>$1.97</td>
+            <td style="font-weight:600;">$2,470</td>
+            <td style="font-weight:700;color:var(--green);">$12,011</td>
+            <td class="acos-mid acos-cell">20.56%</td>
+            <td style="font-weight:700;color:var(--green);">4.86x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">+50% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">16</td>
+            <td>B0F494ZMDJ</td>
+            <td>211,014</td><td>1,322</td><td>0.63%</td><td>$2.07</td>
+            <td style="font-weight:600;">$2,730</td>
+            <td style="font-weight:700;color:var(--green);">$11,281</td>
+            <td class="acos-mid acos-cell">24.20%</td>
+            <td style="font-weight:700;color:var(--green);">4.13x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">17</td>
+            <td>B0D1S93T92</td>
+            <td>231,363</td><td>1,368</td><td>0.59%</td><td>$1.80</td>
+            <td style="font-weight:600;">$2,467</td>
+            <td style="font-weight:700;color:var(--green);">$8,311</td>
+            <td class="acos-mid acos-cell">29.68%</td>
+            <td style="font-weight:700;color:var(--amber);">3.37x</td>
+            <td><span class="poa-priority priority-3">B2B P3</span></td>
+            <td><span class="pill pill-watch">+15% Cap</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">18</td>
+            <td>B095XB1N3F</td>
+            <td>144,767</td><td>1,635</td><td>1.13%</td><td>$1.64</td>
+            <td style="font-weight:600;">$2,683</td>
+            <td style="font-weight:700;color:var(--green);">$8,283</td>
+            <td class="acos-high acos-cell">32.39%</td>
+            <td style="font-weight:700;color:var(--amber);">3.09x</td>
+            <td><span class="poa-priority priority-3">B2B P3</span></td>
+            <td><span class="pill pill-watch">+15% Cap</span></td>
+          </tr>
+          <tr style="background:#EFF6FF;">
+            <td style="font-weight:700;color:var(--accent);">19</td>
+            <td>B07SK8X1ZQ</td>
+            <td>587,782</td><td>628</td><td>0.11%</td><td>$0.94</td>
+            <td style="font-weight:600;">$588</td>
+            <td style="font-weight:700;color:var(--green);">$4,071</td>
+            <td class="acos-ok acos-cell">14.45%</td>
+            <td style="font-weight:700;color:var(--green);">6.92x</td>
+            <td><span class="poa-priority priority-1">B2B P1</span></td>
+            <td><span class="pill pill-scale">New B2B Camp.</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--accent);">20</td>
+            <td>B0BYFLN1GQ</td>
+            <td>35,792</td><td>465</td><td>1.30%</td><td>$1.91</td>
+            <td style="font-weight:600;">$889</td>
+            <td style="font-weight:700;color:var(--green);">$3,746</td>
+            <td class="acos-mid acos-cell">23.74%</td>
+            <td style="font-weight:700;color:var(--green);">4.21x</td>
+            <td><span class="poa-priority priority-2">B2B P2</span></td>
+            <td><span class="pill pill-scale">+30% Cap</span></td>
+          </tr>
+          <tr style="background:var(--surface2);font-weight:700;">
+            <td colspan="6" style="padding:10px 12px;">TOP 20 TOTAL</td>
+            <td style="padding:10px 12px;color:var(--accent);">$88,323</td>
+            <td style="padding:10px 12px;color:var(--green);font-size:15px;">$390,555</td>
+            <td style="padding:10px 12px;" class="acos-mid acos-cell">22.6% avg</td>
+            <td style="padding:10px 12px;color:var(--green);">4.2x avg</td>
+            <td colspan="2" style="padding:10px 12px;">6 × P1 · 10 × P2 · 4 × P3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── FINAL TIPS SECTION ─── -->
+  <hr class="divider">
+  <div class="section-header">
+    <div class="section-label">Final Strategic Tips — ASIN Intelligence</div>
+    <div class="section-title">6 Actionable Tips to Unlock Maximum Revenue from These ASINs</div>
+    <div class="section-desc">Based on combined Screen 1 + Screen 2 ASIN data — implement in order of priority</div>
+  </div>
+
+  <div class="grid grid-2" style="gap:16px;margin-bottom:24px;">
+
+    <div class="suggestion-card quick" style="border-color:#0E9F6E;">
+      <div class="sug-header">
+        <span class="sug-tag tag-quick">Tip 1 — Quick Win</span>
+        <span class="sug-title">Launch Dedicated PT Campaigns for Top 3 Screen-1 ASINs</span>
+      </div>
+      <div class="sug-body"><strong>B0F332YNG8 (201x ROAS), B0FHJH85NH (93.7x), B0F284XV4Z (63.6x)</strong> are generating extraordinary returns on pennies of spend — the algorithm hasn't had budget to scale them. Create 3 new Sponsored Products Product Targeting campaigns: one ASIN per campaign, $50/day each, EXACT ASIN targeting, Dynamic Bids Up &amp; Down. Monitor for 7 days. Expect 10–30x ROAS floor given their track record.</div>
+      <div class="sug-impact">📈 Estimated monthly upside if scaled to $50/day each: +$45,000–$90,000 revenue at minimal ACOS</div>
+    </div>
+
+    <div class="suggestion-card strategic" style="border-color:#1A56DB;">
+      <div class="sug-header">
+        <span class="sug-tag tag-strategic">Tip 2 — B2B Campaigns</span>
+        <span class="sug-title">Build Amazon Business (B2B) Campaigns for Top 6 ASINs</span>
+      </div>
+      <div class="sug-body">ASINs <strong>B0FNPW73LL, B094T2BZCK, B0F8RDYK3P, B0F284XV4Z, B0C15P77JJ, B07SK8X1ZQ</strong> all have high volume + strong ROAS and are ideal for Amazon Business buyers (offices, gyms, wellness brands buying in bulk). Set up separate B2B-targeted SP campaigns using Business pricing rules: minimum 5% quantity discount at 5+ units. B2B buyers have 3–5× higher AOV than retail customers.</div>
+      <div class="sug-impact">📈 B2B orders typically deliver 25–40% higher revenue per order vs standard retail</div>
+    </div>
+
+    <div class="suggestion-card bidding" style="border-color:#D97706;">
+      <div class="sug-header">
+        <span class="sug-tag tag-bidding">Tip 3 — Budget Cap</span>
+        <span class="sug-title">Increase Daily Cap by Tier: +50% for P1, +30% for P2, +15% for P3</span>
+      </div>
+      <div class="sug-body">The 20 B2B ASINs are currently under-budgeted relative to their potential. Apply a tiered cap increase: <strong>P1 ASINs</strong> (B0FNPW73LL, B0F284XV4Z, B0C15P77JJ, B07SK8X1ZQ) → increase daily cap by 50%. <strong>P2 ASINs</strong> (8 campaigns) → +30%. <strong>P3 ASINs</strong> → +15%. Total additional daily budget needed: ~$3,200/day → estimated additional monthly return at 4x ROAS: +$384,000 in sales.</div>
+      <div class="sug-impact">📈 Every $1 added to these campaigns returns $3.0–6.9 in sales based on current ROAS floor</div>
+    </div>
+
+    <div class="suggestion-card structural" style="border-color:#7C3AED;">
+      <div class="sug-header">
+        <span class="sug-tag tag-structural">Tip 4 — CTR Fix</span>
+        <span class="sug-title">Fix Low-CTR High-ROAS ASINs Before Scaling (B0GS2Q45B2, B094TDK36S)</span>
+      </div>
+      <div class="sug-body"><strong>B0GS2Q45B2</strong> has 198K impressions but only 16 clicks (0.01% CTR) yet delivers 31.9x ROAS — meaning every click converts. The bottleneck is creative, not demand. Actions: (1) A/B test main image with a lifestyle shot vs white background, (2) update bullet points to emphasize zero sugar/bundle value, (3) add A+ content comparing to competitors, (4) request a Vine review cycle if below 50 reviews. Once CTR reaches 0.3%+ the sales will multiply 30×.</div>
+      <div class="sug-impact">📈 If CTR improves from 0.01% → 0.3% at same ROAS: projected sales jump from $156 → $4,680/month</div>
+    </div>
+
+    <div class="suggestion-card quick" style="border-color:#0E9F6E;">
+      <div class="sug-header">
+        <span class="sug-tag tag-quick">Tip 5 — Consolidation</span>
+        <span class="sug-title">Consolidate Duplicate ASIN Campaigns (B094T2BZCK, B0F8RDYK3P appear twice)</span>
+      </div>
+      <div class="sug-body">Screen 2 shows <strong>B094T2BZCK</strong> running in 2 campaigns ($21.7K and $8.7K spend), <strong>B0F8RDYK3P</strong> in 2 campaigns, <strong>B0F284XV4Z</strong> in 3, <strong>B0F494ZMDJ</strong> in 3. These duplicates are cannibalising each other's impression share and inflating CPC. Consolidate each ASIN into one best-performing campaign (keep the one with highest ROAS), pause the others, and redirect their budget to the winner. This alone should reduce average CPC by 10–20%.</div>
+      <div class="sug-impact">📈 CPC reduction of 10–20% at current volume = ~$8,800–$17,600/month in cost savings</div>
+    </div>
+
+    <div class="suggestion-card strategic" style="border-color:#1A56DB;">
+      <div class="sug-header">
+        <span class="sug-tag tag-strategic">Tip 6 — Cross-Sell</span>
+        <span class="sug-title">Use Top ASINs as Sponsored Display Remarketing Seeds for Cross-Sell</span>
+      </div>
+      <div class="sug-body">Buyers of <strong>B0FNPW73LL</strong> (Biotics, $192K sales) and <strong>B0F8RDYK3P</strong> (ACV No Sugar, $52K) are Goli's most loyal and high-LTV customers. Create Sponsored Display Remarketing campaigns targeting: (a) purchasers of ASIN A → advertise ASIN B (cross-sell), (b) views of ASIN A → re-serve ASIN A (remarketing). This cross-sell funnel between Biotics → ACV → Ashwagandha could add 15–25% revenue lift with minimal incremental spend since you're targeting already-warm audiences.</div>
+      <div class="sug-impact">📈 Cross-sell remarketing typically drives 15–25% incremental revenue from existing buyer pool</div>
+    </div>
+
+  </div>
+
+  <!-- ASIN Action Priority Summary -->
+  <div class="card" style="background:linear-gradient(135deg,#0F1724 0%,#1A2C4E 100%);color:white;border:none;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px;">📋 ASIN Action Priority Summary — All Sections Combined</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="background:rgba(14,159,110,.15);border:1px solid rgba(14,159,110,.3);border-radius:10px;padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:#34D399;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">🔴 This Week</div>
+        <ul style="font-size:12px;color:rgba(255,255,255,.8);line-height:1.9;list-style:none;padding:0;margin:0;">
+          <li>→ Launch PT: B0F332YNG8 ($50/day)</li>
+          <li>→ Launch PT: B0FHJH85NH ($50/day)</li>
+          <li>→ Launch PT: B0F284XV4Z ($100/day)</li>
+          <li>→ Increase cap: B0FNPW73LL +50%</li>
+          <li>→ Increase cap: B0C15P77JJ +60%</li>
+          <li>→ Consolidate: B0F8RDYK3P duplicates</li>
+        </ul>
+      </div>
+      <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:#FCD34D;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">🟡 Next 2 Weeks</div>
+        <ul style="font-size:12px;color:rgba(255,255,255,.8);line-height:1.9;list-style:none;padding:0;margin:0;">
+          <li>→ Build B2B campaigns for P1 ASINs</li>
+          <li>→ Add 5% quantity discount B2B pricing</li>
+          <li>→ Fix creative on B0GS2Q45B2</li>
+          <li>→ Consolidate B094T2BZCK duplicates</li>
+          <li>→ Increase cap: all P2 ASINs +30%</li>
+          <li>→ Build cross-sell SD remarketing</li>
+        </ul>
+      </div>
+      <div style="background:rgba(26,86,219,.1);border:1px solid rgba(26,86,219,.3);border-radius:10px;padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:#93C5FD;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">🔵 Next 30 Days</div>
+        <ul style="font-size:12px;color:rgba(255,255,255,.8);line-height:1.9;list-style:none;padding:0;margin:0;">
+          <li>→ Evaluate B2B campaign performance</li>
+          <li>→ Build SBV for top B2B ASINs</li>
+          <li>→ Scale P3 ASINs if P1/P2 profitable</li>
+          <li>→ A/B test B0GS2Q45B2 main image</li>
+          <li>→ Run Vine reviews on low-review ASINs</li>
+          <li>→ Quarterly ASIN portfolio audit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab5 -->
+</div><!-- /main -->
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function exportHTML() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], {type: 'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'Goli_VC_Ads_Dashboard_2026.html';
+  a.click();
+}
+</script>
+
+
+</body></html>
